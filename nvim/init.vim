@@ -17,7 +17,7 @@ lua require("TelescopeConfig")
 lua require("ColorizerConfig")
 lua require("NvimTreeConfig")
 
-"Color Scheme
+"Colors 
 let g:catppuccin_flavour = "macchiato"
 colorscheme catppuccin
 set background=dark
