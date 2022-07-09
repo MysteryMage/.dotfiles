@@ -22,6 +22,3 @@ nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 nnoremap <silent> <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
 xmap <silent> <leader>a <cmd>lua vim.lsp.buf.range_code_action()<CR>
-
-nnoremap <silent> <leader>do :lua require"doodle".doodle_open()<CR>
-nnoremap <silent> <leader>cm :lua require"compile".compile()<CR>

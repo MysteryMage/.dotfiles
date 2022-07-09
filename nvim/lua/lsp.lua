@@ -1,4 +1,4 @@
-lspconfig = require('lspconfig')
+local lspconfig = require('lspconfig')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -18,3 +18,4 @@ lspconfig.vimls.setup{}
 lspconfig.clangd.setup{}
 lspconfig.rust_analyzer.setup{}
 lspconfig.jdtls.setup{}
+lspconfig.sumneko_lua.setup{}

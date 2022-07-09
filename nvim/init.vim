@@ -8,14 +8,17 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 ts_utils.get_node_text = vim.treesitter.query.get_node_text
 EOF
 
-lua require("lsp");
+lua require("CatppuccinConfig")
+lua require("lsp")
 lua require("CmpConfig")
 lua require("Treesitter")
-lua require("LualineConfig")
 lua require("CommenterConfig")
 lua require("TelescopeConfig")
 lua require("ColorizerConfig")
 lua require("NvimTreeConfig")
+lua require("GitsignsConfig")
+lua require("FelineConfig")
+
 
 "Colors 
 let g:catppuccin_flavour = "macchiato"
@@ -23,4 +26,4 @@ colorscheme catppuccin
 set background=dark
 
 hi Normal guibg=NONE ctermbg=NONE
-highlight NvimTreeRootFolder guifg=White
+hi NvimTreeRootFolder guifg=White

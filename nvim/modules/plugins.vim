@@ -5,10 +5,12 @@ Plug 'habamax/vim-alchemist'
 Plug 'haystackandroid/strawberry'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
-Plug 'nvim-lualine/lualine.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
+Plug 'feline-nvim/feline.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'rstacruz/vim-closer'
 Plug 'numToStr/Comment.nvim'
@@ -36,9 +38,4 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'stevearc/vim-arduino'
-
-"My Own Plugins
-Plug '/Users/amitmalach/Programming/Plugins.nvim/compile.nvim'
-Plug '/Users/amitmalach/Programming/Plugins.nvim/doodle.nvim'
-
 call plug#end()
