@@ -1,21 +1,18 @@
-local catppuccin = require('catppuccin.core.palettes').get_palette()
 local colors = {
-    bg = catppuccin.mantle,
-    fg = catppuccin.text,
-    rosewater = catppuccin.rosewater,
-	flamingo = catppuccin.flamingo,
-	pink = catppuccin.pink,
-	mauve = catppuccin.mauve,
-	red = catppuccin.red,
-	maroon = catppuccin.maroon,
-	peach = catppuccin.peach,
-	yellow = catppuccin.yellow,
-	green = catppuccin.green,
-	teal = catppuccin.teal,
-	sky = catppuccin.sky,
-	sapphire = catppuccin.sapphire,
-	blue = catppuccin.blue,
-	lavender = catppuccin.lavender,
+    rosewater = "#F5E0DC",
+    flamingo = "#F2CDCD",
+    pink = "#F5C2E7",
+    mauve = "#CBA6F7",
+    red = "#F38BA8",
+    maroon = "#EBA0AC",
+    peach = "#FAB387",
+    yellow = "#F9E2AF",
+    green = "#A6E3A1",
+    teal = "#94E2D5",
+    sky = "#89DCEB",
+    sapphire = "#74C7EC",
+    blue = "#89B4FA",
+    lavender = "#B4BEFE",
 }
 
 local vi_mode_colors = {
@@ -150,7 +147,56 @@ table.insert(components.active[3], {
     right_sep = ' ',
 })
 
+table.insert(components.inactive[1], {
+    provider = {
+        name = 'file_info',
+        opts = {
+            type = 'short',
+            file_readonly_icon = '',
+            file_modified_icon = '',
+        }
+    },
+    hl = {
+        fg = colors.lavender,
+    },
+    left_sep = ' ',
+})
+
+table.insert(components.inactive[2], {
+    provider = {
+        name = 'position',
+    },
+    hl = function()
+        local val = {}
+
+        val.fg = vi_mode_utils.get_mode_color()
+
+        return val
+    end,
+    right_sep = ' ',
+})
+
 require('feline').setup({
+    default_bg = colors.bg,
     components = components,
     vi_mode_colors = vi_mode_colors,
 })
+
+require('feline').use_theme {
+    bg = "#1E1E2E",
+    fg = "#CDD6F4",
+    rosewater = "#F5E0DC",
+    flamingo = "#F2CDCD",
+    pink = "#F5C2E7",
+    mauve = "#CBA6F7",
+    red = "#F38BA8",
+    maroon = "#EBA0AC",
+    peach = "#FAB387",
+    yellow = "#F9E2AF",
+    green = "#A6E3A1",
+    teal = "#94E2D5",
+    sky = "#89DCEB",
+    sapphire = "#74C7EC",
+    blue = "#89B4FA",
+    lavender = "#B4BEFE",
+}
