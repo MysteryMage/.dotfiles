@@ -9,7 +9,7 @@ if (has("termguicolors"))
 endif
 
 set noshowmode "This will disable the insert message
-               "which is not needed beacuse of lualine
+               "which is not needed beacuse of feline
 set laststatus=3
 set nocompatible
 set hidden

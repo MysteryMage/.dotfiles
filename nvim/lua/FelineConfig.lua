@@ -1,4 +1,6 @@
 local colors = {
+    bg = "#24273A",
+    fg = "#CDD6F4",
     rosewater = "#F5E0DC",
     flamingo = "#F2CDCD",
     pink = "#F5C2E7",
@@ -124,6 +126,7 @@ table.insert(components.active[3], {
     left_sep = '  ',
 })
 
+-- Line Percentage
 table.insert(components.active[3], {
     provider = 'line_percentage',
     hl = {
@@ -147,6 +150,7 @@ table.insert(components.active[3], {
     right_sep = ' ',
 })
 
+-- File Inactive
 table.insert(components.inactive[1], {
     provider = {
         name = 'file_info',
@@ -162,6 +166,7 @@ table.insert(components.inactive[1], {
     left_sep = ' ',
 })
 
+-- Location Inactive
 table.insert(components.inactive[2], {
     provider = {
         name = 'position',
@@ -177,26 +182,8 @@ table.insert(components.inactive[2], {
 })
 
 require('feline').setup({
-    default_bg = colors.bg,
     components = components,
     vi_mode_colors = vi_mode_colors,
 })
 
-require('feline').use_theme {
-    bg = "#1E1E2E",
-    fg = "#CDD6F4",
-    rosewater = "#F5E0DC",
-    flamingo = "#F2CDCD",
-    pink = "#F5C2E7",
-    mauve = "#CBA6F7",
-    red = "#F38BA8",
-    maroon = "#EBA0AC",
-    peach = "#FAB387",
-    yellow = "#F9E2AF",
-    green = "#A6E3A1",
-    teal = "#94E2D5",
-    sky = "#89DCEB",
-    sapphire = "#74C7EC",
-    blue = "#89B4FA",
-    lavender = "#B4BEFE",
-}
+require('feline').use_theme(colors)

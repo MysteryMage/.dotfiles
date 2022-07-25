@@ -3,7 +3,7 @@ let mapleader = " "
 
 nnoremap <silent> Y y$
 nnoremap <silent> <leader>e :NvimTreeToggle<Cr>
-nnoremap <silent> <c-p> :Telescope find_files find_command=rg,--ignore,--hidden,--files<Cr>
+nnoremap <silent> <leader>tf :Telescope find_files find_command=rg,--ignore,--hidden,--files<Cr>
 tnoremap <Esc> <C-\><C-n>
 
 nnoremap <C-J> <C-W><C-J>
