@@ -75,7 +75,7 @@ table.insert(components.active[1], {
         name = 'file_info',
         opts = {
             type = 'short',
-            file_readonly_icon = '',
+            file_readonly_icon = ' ',
             file_modified_icon = '',
         }
     },
