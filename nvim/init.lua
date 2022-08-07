@@ -2,6 +2,7 @@ require('General.Sets')
 require('General.Vars')
 require('General.Mappings')
 
+require('impatient')
 require('Plugins')
 
 require('PluginConfig.CatppuccinConfig')
@@ -14,6 +15,7 @@ require('PluginConfig.ColorizerConfig')
 require('PluginConfig.NvimTreeConfig')
 require('PluginConfig.GitsignsConfig')
 require('PluginConfig.FelineConfig')
+require('PluginConfig.NeorgConfig')
 
 require('Colors')
 

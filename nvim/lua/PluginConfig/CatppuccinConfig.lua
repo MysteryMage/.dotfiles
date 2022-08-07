@@ -2,19 +2,19 @@ local catppuccin = require('catppuccin')
 catppuccin.setup({
     dim_inactive = {
         enabled = false,
-        shade = "dark",
+        shade = 'dark',
         percentage = 0.15,
     },
     transparent_background = true,
     term_colors = false,
     compile = {
         enabled = false,
-        path = vim.fn.stdpath "cache" .. "/catppuccin",
-        suffix = "_compiled"
+        path = vim.fn.stdpath 'cache' .. '/catppuccin',
+        suffix = '_compiled'
     },
     styles = {
-        comments = { "italic" },
-        conditionals = { "italic" },
+        comments = { 'italic' },
+        conditionals = { 'italic' },
         loops = {},
         functions = {},
         keywords = {},
@@ -31,16 +31,16 @@ catppuccin.setup({
         native_lsp = {
             enabled = true,
             virtual_text = {
-                errors = { "italic" },
-                hints = { "italic" },
-                warnings = { "italic" },
-                information = { "italic" },
+                errors = { 'italic' },
+                hints = { 'italic' },
+                warnings = { 'italic' },
+                information = { 'italic' },
             },
             underlines = {
-                errors = { "underline" },
-                hints = { "underline" },
-                warnings = { "underline" },
-                information = { "underline" },
+                errors = { 'underline' },
+                hints = { 'underline' },
+                warnings = { 'underline' },
+                information = { 'underline' },
             },
         },
         coc_nvim = false,

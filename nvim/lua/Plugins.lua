@@ -1,9 +1,12 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    use 'dstein64/vim-startuptime'
+    use 'lewis6991/impatient.nvim'
+    use 'nathom/filetype.nvim'
+
     use 'habamax/vim-alchemist'
-    use 'haystackandroid/strawberry'
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'catppuccin/nvim', as = 'catppuccin' }
 
     use 'feline-nvim/feline.nvim'
 
@@ -13,7 +16,7 @@ return require('packer').startup(function()
 
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
-  
+
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
@@ -27,8 +30,8 @@ return require('packer').startup(function()
     use 'onsails/lspkind.nvim'
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = function() 
-            require('nvim-treesitter.install').update({ with_sync = true }) 
+        run = function()
+            require('nvim-treesitter.install').update({ with_sync = true })
         end,
     }
     use 'TimUntersberger/neogit'
@@ -38,4 +41,9 @@ return require('packer').startup(function()
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'rust-lang/rust.vim'
+
+    use {
+        'nvim-neorg/neorg',
+        requires = 'nvim-lua/plenary.nvim'
+    }
 end)

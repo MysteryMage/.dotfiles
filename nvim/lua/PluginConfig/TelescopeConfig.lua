@@ -1,5 +1,5 @@
 require('telescope').setup{
-    defaults = {
+    defaults = require('telescope.themes').get_ivy {
         file_sorter = require('telescope.sorters').ger_fzy_finder,
         poromt_prefix = '> ',
         color_devicons = true,
