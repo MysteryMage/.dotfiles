@@ -6,7 +6,7 @@ require('impatient')
 require('Plugins')
 
 require('PluginConfig.CatppuccinConfig')
-require('PluginConfig.lsp')
+require('PluginConfig.Lsp')
 require('PluginConfig.CmpConfig')
 require('PluginConfig.Treesitter')
 require('PluginConfig.CommenterConfig')

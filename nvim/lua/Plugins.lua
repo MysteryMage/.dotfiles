@@ -1,9 +1,8 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'dstein64/vim-startuptime'
     use 'lewis6991/impatient.nvim'
-    use 'nathom/filetype.nvim'
+    use 'dstein64/vim-startuptime'
 
     use 'habamax/vim-alchemist'
     use { 'catppuccin/nvim', as = 'catppuccin' }

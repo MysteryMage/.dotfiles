@@ -31,8 +31,6 @@ cmp.setup {
                 path = '[path]',
                 ultisnips = '[snip]',
             },
-        }) 
+        })
     }
 }
-
-vim.o.completeopt = 'menu,menuone,noselect'
