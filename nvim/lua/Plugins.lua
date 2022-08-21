@@ -16,10 +16,6 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
 
-    use 'SirVer/ultisnips'
-    use 'honza/vim-snippets'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
-
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'

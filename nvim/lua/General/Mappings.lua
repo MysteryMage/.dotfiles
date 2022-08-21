@@ -4,6 +4,11 @@ local opts = {noremap = true, silent = true}
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<Cr>', opts)
 
+vim.keymap.set('n', '<leader>tc', function()
+    require('telescope.builtin').find_files {
+        cwd = vim.fn.stdpath("config")
+    }
+end, opts)
 vim.keymap.set('n', '<leader>tf', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<Cr>', opts)
 vim.keymap.set('n', '<leader>tg', ':Telescope git_files<Cr>', opts)
 vim.keymap.set('n', '<leader>tb', ':Telescope buffers<Cr>', opts)

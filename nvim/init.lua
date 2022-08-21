@@ -18,4 +18,3 @@ require('PluginConfig.FelineConfig')
 require('PluginConfig.NeorgConfig')
 
 require('Colors')
-

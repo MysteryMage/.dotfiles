@@ -12,6 +12,12 @@ require('neorg').setup {
                     main = '~/Notes',
                 }
             }
-        }
+        },
+        ["core.export"] = {},
+        ["core.export.markdown"] = {
+            config = {
+                extensions = 'all',
+            }
+        },
     }
 }
