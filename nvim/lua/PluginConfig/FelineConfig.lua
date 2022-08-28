@@ -1,5 +1,5 @@
 local colors = {
-    bg = '#24273A',
+    bg = '#1e1e2e',
     fg = '#CDD6F4',
     rosewater = '#F5E0DC',
     flamingo = '#F2CDCD',
