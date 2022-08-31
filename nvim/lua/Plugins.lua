@@ -37,8 +37,8 @@ return require('packer').startup(function(use)
 
     use 'rust-lang/rust.vim'
 
-    use {
-        'nvim-neorg/neorg',
-        requires = 'nvim-lua/plenary.nvim'
-    }
+    -- use {
+    --     'nvim-neorg/neorg',
+    --     requires = 'nvim-lua/plenary.nvim'
+    -- }
 end)
