@@ -1,1 +1,1 @@
-vim.opt.makeprg = "python3 %"
+vim.opt_local.makeprg = "python3 %"
