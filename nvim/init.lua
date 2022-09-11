@@ -15,6 +15,5 @@ require('PluginConfig.ColorizerConfig')
 require('PluginConfig.NvimTreeConfig')
 require('PluginConfig.GitsignsConfig')
 require('PluginConfig.FelineConfig')
--- require('PluginConfig.NeorgConfig') -- Currently only supported on neovim 0.8
 
 require('Colors')

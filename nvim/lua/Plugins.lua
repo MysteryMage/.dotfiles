@@ -2,7 +2,6 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'lewis6991/impatient.nvim'
-    use 'dstein64/vim-startuptime'
 
     use 'habamax/vim-alchemist'
     use { 'catppuccin/nvim', as = 'catppuccin' }
@@ -29,16 +28,10 @@ return require('packer').startup(function(use)
             require('nvim-treesitter.install').update({ with_sync = true })
         end,
     }
-    use 'TimUntersberger/neogit'
 
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'rust-lang/rust.vim'
-
-    -- use {
-    --     'nvim-neorg/neorg',
-    --     requires = 'nvim-lua/plenary.nvim'
-    -- }
 end)
