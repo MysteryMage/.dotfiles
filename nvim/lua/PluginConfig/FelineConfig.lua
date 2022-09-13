@@ -36,7 +36,6 @@ local vi_mode_colors = {
 
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
-local cursor = require('feline.providers.cursor')
 
 local components = {
     active = {{}, {}, {}},
@@ -46,7 +45,7 @@ local components = {
 -- Vim Mode
 table.insert(components.active[1], {
     provider = function()
-        return ' ' .. vi_mode_utils.get_vim_mode().. ' '
+        return ' ' .. vi_mode_utils.get_vim_mode()
     end,
     hl = function()
         local val = {}
@@ -115,15 +114,27 @@ table.insert(components.active[3], {
     -- left_sep = ' ',
 })
 
+-- File Type
+table.insert(components.active[3], {
+    provider = {
+        name = 'file_type',
+    },
+    hl = {
+        fg = colors.lavender,
+    },
+    left_sep = ' ',
+    right_sep = ' ',
+})
+
 -- Lsp Server Name
 table.insert(components.active[3], {
     provider = 'lsp_client_names',
-    icon = ' ',
+    icon = '',
     hl = {
         fg = colors.yellow,
     },
     right_sep = ' ',
-    left_sep = '  ',
+    left_sep = '',
 })
 
 -- Line Percentage
