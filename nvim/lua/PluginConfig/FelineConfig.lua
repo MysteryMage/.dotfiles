@@ -34,8 +34,18 @@ local vi_mode_colors = {
     ['NONE'] = colors.yellow
 }
 
-local lsp = require('feline.providers.lsp')
-local vi_mode_utils = require('feline.providers.vi_mode')
+local feline_lsp_ok, feline_lsp = pcall(require, 'feline.providers.lsp')
+if not feline_lsp_ok then
+    vim.api.nvim_err_writeln('Failed to load feline lsp provider')
+    return
+end
+
+local feline_vi_mode_utils_ok, feline_vi_mode_utils =
+    pcall(require, 'feline.providers.vi_mode')
+if not feline_vi_mode_utils_ok then
+    vim.api.nvim_err_writeln('Failed to load feline vim mode utils provider')
+    return
+end
 
 local components = {
     active = {{}, {}, {}},
@@ -45,12 +55,12 @@ local components = {
 -- Vim Mode
 table.insert(components.active[1], {
     provider = function()
-        return ' ' .. vi_mode_utils.get_vim_mode()
+        return ' ' .. feline_vi_mode_utils.get_vim_mode()
     end,
     hl = function()
         local val = {}
 
-        val.fg = vi_mode_utils.get_mode_color()
+        val.fg = feline_vi_mode_utils.get_mode_color()
         val.style = 'bold'
 
         return val
@@ -87,7 +97,7 @@ table.insert(components.active[1], {
 -- Lsp Error
 table.insert(components.active[3], {
     provider = 'diagnostic_errors',
-    enabled = function() return lsp.diagnostics_exist('Error') end,
+    enabled = function() return feline_lsp.diagnostics_exist('Error') end,
     hl = {
         fg = colors.red,
     },
@@ -97,7 +107,7 @@ table.insert(components.active[3], {
 -- Lsp Warning
 table.insert(components.active[3], {
     provider = 'diagnostic_warnings',
-    enabled = function() return lsp.diagnostics_exist('Warn') end,
+    enabled = function() return feline_lsp.diagnostics_exist('Warn') end,
     hl = {
         fg = colors.yellow,
     },
@@ -107,7 +117,7 @@ table.insert(components.active[3], {
 -- Lsp Info
 table.insert(components.active[3], {
     provider = 'diagnostic_info',
-    enabled = function() return lsp.diagnostics_exist('Info') end,
+    enabled = function() return feline_lsp.diagnostics_exist('Info') end,
     hl = {
         fg = colors.green,
     },
@@ -154,7 +164,7 @@ table.insert(components.active[3], {
     hl = function()
         local val = {}
 
-        val.fg = vi_mode_utils.get_mode_color()
+        val.fg = feline_vi_mode_utils.get_mode_color()
 
         return val
     end,
@@ -185,16 +195,23 @@ table.insert(components.inactive[2], {
     hl = function()
         local val = {}
 
-        val.fg = vi_mode_utils.get_mode_color()
+        val.fg = feline_vi_mode_utils.get_mode_color()
 
         return val
     end,
     right_sep = ' ',
 })
 
-require('feline').setup({
+
+local feline_ok, feline = pcall(require, 'feline')
+if not feline_ok then
+    vim.api.nvim_err_writeln('Failed to load feline')
+    return
+end
+
+feline.setup({
     components = components,
     vi_mode_colors = vi_mode_colors,
 })
 
-require('feline').use_theme(colors)
+feline.use_theme(colors)

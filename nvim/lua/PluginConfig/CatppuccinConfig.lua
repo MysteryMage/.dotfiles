@@ -1,4 +1,9 @@
-local catppuccin = require('catppuccin')
+local catppuccin_ok, catppuccin = pcall(require, 'catppuccin')
+if not catppuccin_ok then
+    vim.api.nvim_err_writeln('Failed to load catppuccin')
+    return
+end
+
 catppuccin.setup({
     dim_inactive = {
         enabled = false,

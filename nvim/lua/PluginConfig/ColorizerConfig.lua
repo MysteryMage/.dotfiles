@@ -1,4 +1,10 @@
-require'colorizer'.setup(
+local colorizer_ok, colorizer = pcall(require, 'colorizer')
+if not colorizer_ok then
+    vim.api.nvim_err_writeln('Failed to load colorizer')
+    return
+end
+
+colorizer.setup(
     {'*';},
     {
         RGB =      true;

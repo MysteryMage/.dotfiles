@@ -5,7 +5,13 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<Cr>', opts)
 
 vim.keymap.set('n', '<leader>tc', function()
-    require('telescope.builtin').find_files {
+    local telescope_ok, telescope = pcall(require, 'telescope.builtin')
+    if not telescope_ok then
+        vim.api.nvim_err_writeln('Failed to load telescope.builtin')
+        return
+    end
+
+    telescope.find_files {
         cwd = vim.fn.stdpath('config')
     }
 end, opts)
@@ -33,7 +39,7 @@ vim.keymap.set('n', '<leader>m', '<cmd>make<CR>', opts)
 vim.keymap.set('n', '<leader>ct', function()
     local cmd = vim.fn.input('Compile command: ')
     if cmd and #cmd > 0 then
-        local term_cmd = 'vs | vertical terminal! '..cmd
+        local term_cmd = 'sp | vertical terminal! '..cmd
         vim.cmd(term_cmd)
     end
 end, opts)

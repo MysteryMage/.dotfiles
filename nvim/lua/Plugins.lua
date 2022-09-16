@@ -1,4 +1,23 @@
-return require('packer').startup(function(use)
+local packer_ok, packer = pcall(require, 'packer')
+if not packer_ok then
+    vim.api.nvim_err_writeln("Failed to load packer")
+    return
+end
+
+packer.init({
+    display = {
+        open_fn = function()
+            local packer_util_ok, packer_util = pcall(require, 'packer.util')
+            if not packer_util_ok then
+                vim.api.nvim_err_writeln("Failed to load packer util")
+                return
+            end
+            return packer_util.float({border = "rounded"})
+        end
+    }
+})
+
+return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'lewis6991/impatient.nvim'
@@ -25,7 +44,13 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
-            require('nvim-treesitter.install').update({ with_sync = true })
+            local treesitter_ok, treesitter_install =
+                pcall(require, 'nvim-treesitter.install')
+
+            if not treesitter_ok then
+                vim.api.nvim_err_writeln("Failed to load treesitter")
+            end
+            treesitter_install.update({ with_sync = true })
         end,
     }
 
