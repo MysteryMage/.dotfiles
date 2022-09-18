@@ -24,6 +24,7 @@ return packer.startup(function(use)
 
     use 'habamax/vim-alchemist'
     use { 'catppuccin/nvim', as = 'catppuccin' }
+    use 'stevearc/dressing.nvim'
 
     use 'feline-nvim/feline.nvim'
 

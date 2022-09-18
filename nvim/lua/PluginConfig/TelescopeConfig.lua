@@ -24,7 +24,7 @@ if not telescope_sorters_ok then
 end
 
 telescope.setup({
-    defaults = telescope_themes.get_ivy {
+    defaults = telescope_themes.get_dropdown {
         file_sorter = telescope_sorters.get_fzy_finder,
         poromt_prefix = '> ',
         color_devicons = true,
