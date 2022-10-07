@@ -1,37 +1,42 @@
 local colors = {
-    bg = '#1e1e2e',
-    fg = '#CDD6F4',
-    rosewater = '#F5E0DC',
-    flamingo = '#F2CDCD',
-    pink = '#F5C2E7',
-    mauve = '#CBA6F7',
-    red = '#F38BA8',
-    maroon = '#EBA0AC',
-    peach = '#FAB387',
-    yellow = '#F9E2AF',
-    green = '#A6E3A1',
-    teal = '#94E2D5',
-    sky = '#89DCEB',
-    sapphire = '#74C7EC',
-    blue = '#89B4FA',
-    lavender = '#B4BEFE',
+    '#2a1f1e', -- Background
+    '#41302e',
+    '#58413f',
+    '#6f524f',
+    '#bba2a0',
+    '#cbb8b7', -- Foreground
+    '#dccfcd',
+    '#ece5e4',
+
+    '#cb6077',
+    '#c58920',
+    '#e8e80e',
+    '#05CC83',
+    '#8ab3b5',
+    '#6897e7',
+    '#a34d5f',
+    '#b0987a',
+}
+local theme = {
+    bg = colors[1],
+    fg = colors[6],
 }
 
 local vi_mode_colors = {
-    ['NORMAL'] = colors.maroon,
-    ['INSERT'] = colors.sky,
-    ['VISUAL'] = colors.sapphire,
-    ['OP'] = colors.maroon,
-    ['BLOCK'] = colors.sky,
-    ['REPLACE'] = colors.flamingo,
-    ['V-REPLACE'] = colors.flamingo,
-    ['ENTER'] = colors.lavender,
-    ['MORE'] = colors.lavender,
-    ['SELECT'] = colors.peach,
-    ['COMMAND'] = colors.mauve,
-    ['SHELL'] = colors.maroon,
-    ['TERM'] = colors.sky,
-    ['NONE'] = colors.yellow
+    ['NORMAL'] = colors[9],
+    ['INSERT'] = colors[16],
+    ['VISUAL'] = colors[14],
+    ['OP'] = colors[9],
+    ['BLOCK'] = colors[14],
+    ['REPLACE'] = colors[10],
+    ['V-REPLACE'] = colors[13],
+    ['ENTER'] = colors[12],
+    ['MORE'] = colors[12],
+    ['SELECT'] = colors[14],
+    ['COMMAND'] = colors[15],
+    ['SHELL'] = colors[15],
+    ['TERM'] = colors[15],
+    ['NONE'] = colors[11],
 }
 
 local feline_lsp_ok, feline_lsp = pcall(require, 'feline.providers.lsp')
@@ -73,7 +78,7 @@ table.insert(components.active[1], {
     provider = 'git_branch',
     icon = ' ',
     hl = {
-        fg = colors.peach,
+        fg = colors[10],
     },
     left_sep = ' ',
 })
@@ -89,7 +94,7 @@ table.insert(components.active[1], {
         }
     },
     hl = {
-        fg = colors.lavender,
+        fg = colors[6],
     },
     left_sep = ' ',
 })
@@ -99,7 +104,7 @@ table.insert(components.active[3], {
     provider = 'diagnostic_errors',
     enabled = function() return feline_lsp.diagnostics_exist('Error') end,
     hl = {
-        fg = colors.red,
+        fg = colors[9],
     },
     -- left_sep = ' ',
 })
@@ -109,7 +114,7 @@ table.insert(components.active[3], {
     provider = 'diagnostic_warnings',
     enabled = function() return feline_lsp.diagnostics_exist('Warn') end,
     hl = {
-        fg = colors.yellow,
+        fg = colors[11],
     },
     -- left_sep = ' ',
 })
@@ -119,7 +124,7 @@ table.insert(components.active[3], {
     provider = 'diagnostic_info',
     enabled = function() return feline_lsp.diagnostics_exist('Info') end,
     hl = {
-        fg = colors.green,
+        fg = colors[12],
     },
     -- left_sep = ' ',
 })
@@ -130,7 +135,7 @@ table.insert(components.active[3], {
         name = 'file_type',
     },
     hl = {
-        fg = colors.lavender,
+        fg = colors[13],
     },
     left_sep = ' ',
     right_sep = ' ',
@@ -141,7 +146,7 @@ table.insert(components.active[3], {
     provider = 'lsp_client_names',
     icon = '',
     hl = {
-        fg = colors.yellow,
+        fg = colors[16],
     },
     right_sep = ' ',
     left_sep = '',
@@ -151,7 +156,7 @@ table.insert(components.active[3], {
 table.insert(components.active[3], {
     provider = 'line_percentage',
     hl = {
-        fg = colors.blue,
+        fg = colors[14],
     },
     right_sep = ' ',
 })
@@ -182,7 +187,7 @@ table.insert(components.inactive[1], {
         }
     },
     hl = {
-        fg = colors.lavender,
+        fg = colors[6],
     },
     left_sep = ' ',
 })
@@ -214,4 +219,4 @@ feline.setup({
     vi_mode_colors = vi_mode_colors,
 })
 
-feline.use_theme(colors)
+feline.use_theme(theme)

@@ -23,7 +23,14 @@ return packer.startup(function(use)
     use 'lewis6991/impatient.nvim'
 
     use 'habamax/vim-alchemist'
-    use { 'catppuccin/nvim', as = 'catppuccin' }
+    use {
+        'catppuccin/nvim',
+        as = 'catppuccin'
+    }
+    use {
+        '~/Programming/Plugins.nvim/tavern.nvim',
+        requires = 'rktjmp/lush.nvim'
+    }
     use 'stevearc/dressing.nvim'
 
     use 'feline-nvim/feline.nvim'
@@ -31,6 +38,10 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-fugitive'
+
+    use "L3MON4D3/LuaSnip"
+    use "rafamadriz/friendly-snippets"
 
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
@@ -40,6 +51,7 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'saadparwaiz1/cmp_luasnip'
     use 'neovim/nvim-lspconfig'
     use 'onsails/lspkind.nvim'
     use {

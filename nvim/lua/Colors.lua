@@ -12,5 +12,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
-vim.g.catppuccin_flavour = 'mocha'
-vim.cmd('colorscheme catppuccin')
+vim.g.tavern_transparent = true
+vim.cmd('colorscheme tavern')

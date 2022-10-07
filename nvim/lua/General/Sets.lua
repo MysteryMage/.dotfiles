@@ -5,11 +5,14 @@ vim.opt.termguicolors = true
 
 vim.opt.showmode = false
 vim.opt.laststatus = 3
+vim.opt.winbar = ''
 
 vim.opt.hidden = true
 vim.opt.scrolloff = 4
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
+vim.opt.wrap = false
+vim.opt.cmdheight = 1
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
