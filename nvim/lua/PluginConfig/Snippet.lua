@@ -1,10 +1,9 @@
-require("luasnip.loaders.from_vscode").lazy_load()
-
 local luasnip_ok, luasnip = pcall(require, 'luasnip')
 if not luasnip_ok then
-    vim.api.nvim_err_writeln('Failed to load luasnip')
     return
 end
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Mappings for luasnip 
 vim.keymap.set({ 'i', 's' }, '<C-k>', function()

@@ -3,10 +3,6 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 local disabled_built_ins = {
-    'netrw',
-    'netrwPlugin',
-    'netrwSettings',
-    'netrwFileHandlers',
     'gzip',
     'zip',
     'zipPlugin',

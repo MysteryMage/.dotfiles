@@ -36,7 +36,6 @@ return packer.startup(function(use)
     use 'feline-nvim/feline.nvim'
 
     use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
 

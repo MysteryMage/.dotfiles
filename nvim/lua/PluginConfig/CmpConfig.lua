@@ -1,12 +1,10 @@
 local cmp_ok, cmp = pcall(require, 'cmp')
 if not cmp_ok then
-    vim.api.nvim_err_writeln('Failed to load cmp')
     return
 end
 
 local lspkind_ok, lspkind = pcall(require, 'lspkind')
 if not lspkind_ok then
-    vim.api.nvim_err_writeln('Failed to load lspkind')
     return
 end
 
@@ -15,7 +13,6 @@ cmp.setup {
         expand = function(args)
             local luasnip_ok, luasnip = pcall(require, 'luasnip')
             if not luasnip_ok then
-                vim.api.nvim_err_writeln('Failed to load luasnip')
                 return
             end
             luasnip.lsp_expand(args.body)

@@ -1,3 +1,11 @@
+local feline_ok, feline = pcall(require, 'feline')
+if not feline_ok then
+    return
+end
+
+local feline_lsp = require('feline.providers.lsp')
+local feline_vi_mode_utils  = require('feline.providers.vi_mode')
+
 local colors = {
     '#2a1f1e', -- Background
     '#41302e',
@@ -38,19 +46,6 @@ local vi_mode_colors = {
     ['TERM'] = colors[15],
     ['NONE'] = colors[11],
 }
-
-local feline_lsp_ok, feline_lsp = pcall(require, 'feline.providers.lsp')
-if not feline_lsp_ok then
-    vim.api.nvim_err_writeln('Failed to load feline lsp provider')
-    return
-end
-
-local feline_vi_mode_utils_ok, feline_vi_mode_utils =
-    pcall(require, 'feline.providers.vi_mode')
-if not feline_vi_mode_utils_ok then
-    vim.api.nvim_err_writeln('Failed to load feline vim mode utils provider')
-    return
-end
 
 local components = {
     active = {{}, {}, {}},
@@ -206,13 +201,6 @@ table.insert(components.inactive[2], {
     end,
     right_sep = ' ',
 })
-
-
-local feline_ok, feline = pcall(require, 'feline')
-if not feline_ok then
-    vim.api.nvim_err_writeln('Failed to load feline')
-    return
-end
 
 feline.setup({
     components = components,

@@ -17,7 +17,6 @@ require('PluginConfig.Treesitter')
 require('PluginConfig.CommenterConfig')
 require('PluginConfig.TelescopeConfig')
 require('PluginConfig.ColorizerConfig')
-require('PluginConfig.NvimTreeConfig')
 require('PluginConfig.GitsignsConfig')
 require('PluginConfig.FelineConfig')
 

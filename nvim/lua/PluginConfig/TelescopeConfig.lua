@@ -1,27 +1,11 @@
 local telescope_ok, telescope = pcall(require, 'telescope')
 if not telescope_ok then
-    vim.api.nvim_err_writeln('Failed to load telescope')
     return
 end
 
-local telescope_previewers_ok, telescope_previewers =
-    pcall(require, 'telescope.previewers')
-if not telescope_previewers_ok then
-    vim.api.nvim_err_writeln('Failed to load telescope_previewers')
-    return
-end
-
-local telescope_themes_ok, telescope_themes = pcall(require, 'telescope.themes')
-if not telescope_themes_ok then
-    vim.api.nvim_err_writeln('Failed to load telescope_themes')
-    return
-end
-
-local telescope_sorters_ok, telescope_sorters = pcall(require, 'telescope.sorters')
-if not telescope_sorters_ok then
-    vim.api.nvim_err_writeln('Failed to load telescope_sorters')
-    return
-end
+local telescope_previewers = require('telescope.previewers')
+local telescope_themes = require('telescope.themes')
+local telescope_sorters = require('telescope.sorters')
 
 telescope.setup({
     defaults = telescope_themes.get_dropdown {
