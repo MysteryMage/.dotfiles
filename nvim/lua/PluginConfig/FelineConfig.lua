@@ -55,17 +55,18 @@ local components = {
 -- Vim Mode
 table.insert(components.active[1], {
     provider = function()
-        return ' ' .. feline_vi_mode_utils.get_vim_mode()
+        return ' ' .. feline_vi_mode_utils.get_vim_mode() ..  ' '
     end,
     hl = function()
         local val = {}
 
+        val.bg = colors[2]
         val.fg = feline_vi_mode_utils.get_mode_color()
         val.style = 'bold'
 
         return val
     end,
-    right_sep = ' '
+    right_sep = 'slant_right'
 })
 
 -- Git Branch
