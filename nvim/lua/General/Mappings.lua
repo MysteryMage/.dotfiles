@@ -7,7 +7,6 @@ vim.keymap.set('n', '<leader>e', ':Explore<Cr>', opts)
 vim.keymap.set('n', '<leader>fc', function()
     local telescope_ok, telescope = pcall(require, 'telescope.builtin')
     if not telescope_ok then
-        vim.api.nvim_err_writeln('Failed to load telescope.builtin')
         return
     end
 
@@ -28,6 +27,7 @@ vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.keymap.set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
 vim.keymap.set('n', '<leader>sm', function()
     local cmd = vim.fn.input('Compile command: ')
@@ -43,7 +43,7 @@ vim.keymap.set('n', '<leader>c', function()
     local cmd = vim.fn.input('Compile command: ', prev_cmd)
     if cmd and #cmd > 0 then
         prev_cmd = cmd
-        local term_cmd = 'sp | vertical terminal! '..cmd
+        local term_cmd = 'sp | vertical terminal! ' .. cmd
         vim.cmd(term_cmd)
     end
 end, opts)

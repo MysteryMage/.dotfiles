@@ -34,5 +34,3 @@ vim.opt.ttyfast = true
 vim.opt.foldmethod = 'manual'
 
 vim.opt.completeopt = 'menu,menuone,noselect'
-
-vim.opt.lazyredraw = true

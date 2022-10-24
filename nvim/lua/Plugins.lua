@@ -7,11 +7,7 @@ end
 packer.init({
     display = {
         open_fn = function()
-            local packer_util_ok, packer_util = pcall(require, 'packer.util')
-            if not packer_util_ok then
-                vim.api.nvim_err_writeln("Failed to load packer util")
-                return
-            end
+            local packer_util = require('packer.util')
             return packer_util.float({border = "rounded"})
         end
     }
@@ -19,6 +15,11 @@ packer.init({
 
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
+
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     use 'lewis6991/impatient.nvim'
 
@@ -60,7 +61,7 @@ return packer.startup(function(use)
                 pcall(require, 'nvim-treesitter.install')
 
             if not treesitter_ok then
-                vim.api.nvim_err_writeln("Failed to load treesitter")
+                return
             end
             treesitter_install.update({ with_sync = true })
         end,
