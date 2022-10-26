@@ -20,7 +20,7 @@ lspconfig.pyright.setup {}
 lspconfig.vimls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.rust_analyzer.setup {}
-lspconfig.jdtls.setup {}
+
 lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {

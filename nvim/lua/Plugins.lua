@@ -8,7 +8,7 @@ packer.init({
     display = {
         open_fn = function()
             local packer_util = require('packer.util')
-            return packer_util.float({border = "rounded"})
+            return packer_util.float({ border = "rounded" })
         end
     }
 })
@@ -46,6 +46,14 @@ return packer.startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
 
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {}
+        end
+    }
+
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
@@ -58,7 +66,7 @@ return packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local treesitter_ok, treesitter_install =
-                pcall(require, 'nvim-treesitter.install')
+            pcall(require, 'nvim-treesitter.install')
 
             if not treesitter_ok then
                 return
@@ -72,4 +80,5 @@ return packer.startup(function(use)
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'rust-lang/rust.vim'
+    use 'mfussenegger/nvim-jdtls'
 end)
