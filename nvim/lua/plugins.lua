@@ -32,11 +32,11 @@ return packer.startup(function(use)
         '~/Programming/Plugins.nvim/tavern.nvim',
         requires = 'rktjmp/lush.nvim'
     }
-    use 'stevearc/dressing.nvim'
-
-    use 'feline-nvim/feline.nvim'
 
     use 'kyazdani42/nvim-web-devicons'
+    use 'stevearc/dressing.nvim'
+    use 'feline-nvim/feline.nvim'
+
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
 
@@ -54,14 +54,18 @@ return packer.startup(function(use)
         end
     }
 
+    use "elihunter173/dirbuf.nvim"
+
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'saadparwaiz1/cmp_luasnip'
+
     use 'neovim/nvim-lspconfig'
     use 'onsails/lspkind.nvim'
+
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -75,10 +79,11 @@ return packer.startup(function(use)
         end,
     }
 
-    use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'rust-lang/rust.vim'
     use 'mfussenegger/nvim-jdtls'
+
+    use 'nvim-lua/plenary.nvim'
 end)

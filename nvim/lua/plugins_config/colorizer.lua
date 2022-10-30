@@ -4,7 +4,10 @@ if not colorizer_ok then
 end
 
 colorizer.setup(
-    {'*';},
+    {
+        '*';
+        '!dirbuf';
+    },
     {
         RGB =      true;
         RRGGBB =   true;
