@@ -9,7 +9,6 @@ require('core.mappings')
 
 require('plugins')
 
-require('plugins_config.catppuccin')
 require('plugins_config.mason')
 require('plugins_config.lsp')
 require('plugins_config.null_ls')

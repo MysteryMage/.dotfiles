@@ -9,6 +9,6 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
     sources = {
         diagnostics.flake8,
-        formatting.autopep8,
+        formatting.black,
     }
 })

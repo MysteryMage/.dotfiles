@@ -25,10 +25,6 @@ return packer.startup(function(use)
 
     use 'habamax/vim-alchemist'
     use {
-        'catppuccin/nvim',
-        as = 'catppuccin'
-    }
-    use {
         '~/Programming/Plugins.nvim/tavern.nvim',
         requires = 'rktjmp/lush.nvim'
     }
