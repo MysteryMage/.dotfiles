@@ -38,7 +38,7 @@ vim.keymap.set('n', '<leader>sm', function()
 end, opts)
 vim.keymap.set('n', '<leader>m', '<cmd>make<CR>', opts)
 
-local prev_cmd = ""
+local prev_cmd = ''
 vim.keymap.set('n', '<leader>c', function()
     local cmd = vim.fn.input('Compile command: ', prev_cmd)
     if cmd and #cmd > 0 then

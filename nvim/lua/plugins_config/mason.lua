@@ -8,5 +8,9 @@ if not mason_lsp_ok then
     return
 end
 
-mason.setup()
+mason.setup({
+    ui = {
+        border = 'rounded',
+    }
+})
 mason_lsp.setup()

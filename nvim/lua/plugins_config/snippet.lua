@@ -3,7 +3,7 @@ if not luasnip_ok then
     return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load()
 
 -- Mappings for luasnip 
 vim.keymap.set({ 'i', 's' }, '<C-k>', function()

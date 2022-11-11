@@ -1,6 +1,6 @@
 local packer_ok, packer = pcall(require, 'packer')
 if not packer_ok then
-    vim.api.nvim_err_writeln("Failed to load packer")
+    vim.api.nvim_err_writeln('Failed to load packer')
     return
 end
 
@@ -8,7 +8,7 @@ packer.init({
     display = {
         open_fn = function()
             local packer_util = require('packer.util')
-            return packer_util.float({ border = "rounded" })
+            return packer_util.float({ border = 'rounded' })
         end
     }
 })
@@ -36,23 +36,24 @@ return packer.startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
 
-    use "L3MON4D3/LuaSnip"
-    use "rafamadriz/friendly-snippets"
+    use 'L3MON4D3/LuaSnip'
+    use 'rafamadriz/friendly-snippets'
 
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
 
     use {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        'folke/todo-comments.nvim',
+        requires = 'nvim-lua/plenary.nvim',
         config = function()
-            require("todo-comments").setup {}
+            require('todo-comments').setup {}
         end
     }
 
-    use "elihunter173/dirbuf.nvim"
+    use 'elihunter173/dirbuf.nvim'
 
     use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'

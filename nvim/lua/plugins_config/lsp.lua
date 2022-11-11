@@ -28,10 +28,11 @@ lspconfig.sumneko_lua.setup {
                 version = 'LuaJIT',
             },
             diagnostics = {
-                globals = {'vim'},
+                globals = { 'vim' },
             },
             workspace = {
                 library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
             },
             telemetry = {
                 enable = false,
@@ -39,3 +40,40 @@ lspconfig.sumneko_lua.setup {
         },
     },
 }
+
+local signs = {
+    { 'DiagnosticSignError', '' },
+    { 'DiagnosticSignWarn', '' },
+    { 'DiagnosticSignHint', '' },
+    { 'DiagnosticSignInfo', '' }
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign[1], {
+        texthl = sign[1],
+        text = sign[2],
+        numhl = ''
+    })
+end
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = 'rounded',
+})
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = 'rounded',
+})
+
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+})

@@ -27,10 +27,15 @@ cmp.setup {
     },
     sources = {
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'buffer' },
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     formatting = {
         format = lspkind.cmp_format({
