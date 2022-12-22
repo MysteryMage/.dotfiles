@@ -13,4 +13,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 vim.g.tavern_transparent = true
-vim.cmd('colorscheme tavern')
+vim.cmd.colorscheme('tavern')
