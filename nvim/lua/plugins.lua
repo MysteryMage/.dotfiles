@@ -41,6 +41,10 @@ return packer.startup(function(use)
 
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
     use {
         'folke/todo-comments.nvim',
