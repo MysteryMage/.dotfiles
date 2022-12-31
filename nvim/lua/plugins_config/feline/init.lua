@@ -3,28 +3,10 @@ if not feline_ok then
     return
 end
 
-local feline_lsp = require('feline.providers.lsp')
-local feline_vi_mode_utils  = require('feline.providers.vi_mode')
+local feline_lsp           = require('feline.providers.lsp')
+local feline_vi_mode_utils = require('feline.providers.vi_mode')
 
-local colors = {
-    '#2a1f1e', -- Background
-    '#41302e',
-    '#58413f',
-    '#6f524f',
-    '#bba2a0',
-    '#cbb8b7', -- Foreground
-    '#dccfcd',
-    '#ece5e4',
-
-    '#cb6077',
-    '#c58920',
-    '#e8e80e',
-    '#05CC83',
-    '#8ab3b5',
-    '#6897e7',
-    '#a34d5f',
-    '#b0987a',
-}
+local colors = require('plugins_config.feline.colors.gruvbox_baby')
 local theme = {
     bg = colors[1],
     fg = colors[6],
@@ -48,14 +30,14 @@ local vi_mode_colors = {
 }
 
 local components = {
-    active = {{}, {}, {}},
-    inactive = {{}, {}}
+    active = { {}, {}, {} },
+    inactive = { {}, {} }
 }
 
 -- Vim Mode
 table.insert(components.active[1], {
     provider = function()
-        return ' ' .. feline_vi_mode_utils.get_vim_mode() ..  ' '
+        return ' ' .. feline_vi_mode_utils.get_vim_mode() .. ' '
     end,
     hl = function()
         local val = {}

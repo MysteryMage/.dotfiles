@@ -28,6 +28,7 @@ return packer.startup(function(use)
         '~/Programming/Plugins.nvim/tavern.nvim',
         requires = 'rktjmp/lush.nvim'
     }
+    use 'luisiacc/gruvbox-baby'
 
     use 'kyazdani42/nvim-web-devicons'
     use 'stevearc/dressing.nvim'
@@ -42,7 +43,7 @@ return packer.startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use {
-        "windwp/nvim-autopairs",
+        'windwp/nvim-autopairs',
         config = function() require("nvim-autopairs").setup {} end
     }
 

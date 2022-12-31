@@ -16,12 +16,8 @@ telescope.setup({
         file_previewer = telescope_previewers.vim_buffer_cat.new,
         grep_previewer = telescope_previewers.vim_buffer_vimgrep.new,
         qflist_previewer = telescope_previewers.vim_buffer_qflist.new,
-
-        mappings = {
-            i = {
-            }
-        }
     },
+
     extensions = {
         fzy_native = {
             override_generic_sorter = false,

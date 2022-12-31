@@ -9,6 +9,7 @@ dressing.setup({
             winblend = 0,
         },
     },
+
     select = {
         builtin = {
             win_options = {
