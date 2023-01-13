@@ -21,5 +21,6 @@ require('plugins_config.colorizer')
 require('plugins_config.gitsigns')
 require('plugins_config.feline')
 require('plugins_config.dressing')
+require('plugins_config.oil')
 
 require('colors')

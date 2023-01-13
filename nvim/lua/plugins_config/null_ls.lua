@@ -10,5 +10,6 @@ null_ls.setup({
     sources = {
         diagnostics.flake8,
         formatting.black,
+        formatting.stylua,
     }
 })

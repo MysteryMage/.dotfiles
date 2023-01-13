@@ -55,7 +55,7 @@ return packer.startup(function(use)
         end
     }
 
-    use 'elihunter173/dirbuf.nvim'
+    use 'stevearc/oil.nvim'
 
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'

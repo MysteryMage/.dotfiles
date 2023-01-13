@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<leader>e', ':Dirbuf<Cr>', opts)
+vim.keymap.set('n', '<leader>e', ':Oil<Cr>', opts)
 
 vim.keymap.set('n', '<leader>fc', function()
     local telescope_ok, telescope = pcall(require, 'telescope.builtin')
