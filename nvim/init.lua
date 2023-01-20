@@ -1,8 +1,3 @@
-local impatient_ok, _ = pcall(require, 'impatient')
-if not impatient_ok then
-    vim.api.nvim_err_writeln('Failed to load impatient')
-end
-
 require('core.sets')
 require('core.vars')
 require('core.mappings')
