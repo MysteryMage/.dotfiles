@@ -15,13 +15,14 @@ lspconfig.cssls.setup {
 
 -- tsserver requires tsconfig.json file, it can be empty
 lspconfig.tsserver.setup {}
+lspconfig.volar.setup {}
 
 lspconfig.pyright.setup {}
 lspconfig.vimls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.rust_analyzer.setup {}
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
     settings = {
         Lua = {
             runtime = {
