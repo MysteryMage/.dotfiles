@@ -55,6 +55,7 @@ lazy.setup({
             require('nvim-autopairs').setup({})
         end,
     },
+    'https://github.com/j-hui/fidget.nvim',
 
     {
         'folke/todo-comments.nvim',

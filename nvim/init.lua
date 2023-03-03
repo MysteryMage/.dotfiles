@@ -17,5 +17,6 @@ require('plugins_config.gitsigns')
 require('plugins_config.feline')
 require('plugins_config.dressing')
 require('plugins_config.oil')
+require('plugins_config.fidget')
 
 require('colors')
