@@ -77,6 +77,11 @@ lazy.setup({
 
     'neovim/nvim-lspconfig',
     'onsails/lspkind.nvim',
+    'mfussenegger/nvim-dap',
+    {
+        'rcarriga/nvim-dap-ui',
+        dependencies = 'mfussenegger/nvim-dap',
+    },
 
     {
         'nvim-treesitter/nvim-treesitter',
