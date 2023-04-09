@@ -4,24 +4,19 @@ if not telescope_ok then
 end
 
 local telescope_previewers = require('telescope.previewers')
-local telescope_themes = require('telescope.themes')
-local telescope_sorters = require('telescope.sorters')
 
 telescope.setup({
-    defaults = telescope_themes.get_dropdown {
-        file_sorter = telescope_sorters.get_fzy_finder,
-        poromt_prefix = '> ',
+    defaults = {
+        layout_strategy = 'bottom_pane',
+        layout_config = {
+            height = 0.4,
+        },
+        sorting_strategy = 'ascending',
+        prompt_prefix = '   ',
         color_devicons = true,
-
+        border = true,
         file_previewer = telescope_previewers.vim_buffer_cat.new,
         grep_previewer = telescope_previewers.vim_buffer_vimgrep.new,
         qflist_previewer = telescope_previewers.vim_buffer_qflist.new,
     },
-
-    extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        }
-    }
 })
