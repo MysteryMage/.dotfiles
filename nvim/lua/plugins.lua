@@ -32,8 +32,8 @@ lazy.setup({
 
     'habamax/vim-alchemist',
     {
-        dir = '~/Programming/Plugins.nvim/tavern.nvim',
-        dependecies = 'rktjmp/lush.nvim',
+        dir = '~/dev/Plugins.nvim/tavern.nvim',
+        dependencies = 'rktjmp/lush.nvim',
     },
     'luisiacc/gruvbox-baby',
 
@@ -59,7 +59,7 @@ lazy.setup({
 
     {
         'folke/todo-comments.nvim',
-        dependecies = 'nvim-lua/plenary.nvim',
+        dependencies = 'nvim-lua/plenary.nvim',
         config = function()
             require('todo-comments').setup({})
         end,

@@ -6,23 +6,27 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup {
+lspconfig.html.setup({
     capabilities = capabilities,
-}
-lspconfig.cssls.setup {
+})
+lspconfig.cssls.setup({
     capabilities = capabilities,
-}
+})
 
--- tsserver requires tsconfig.json file, it can be empty
-lspconfig.tsserver.setup {}
-lspconfig.volar.setup {}
+lspconfig.tsserver.setup({
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+})
+lspconfig.volar.setup({})
 
-lspconfig.pyright.setup {}
-lspconfig.vimls.setup {}
-lspconfig.clangd.setup {}
-lspconfig.rust_analyzer.setup {}
+lspconfig.pyright.setup({})
+lspconfig.vimls.setup({})
+lspconfig.clangd.setup({})
+lspconfig.rust_analyzer.setup({})
 
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
     settings = {
         Lua = {
             runtime = {
@@ -40,20 +44,20 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
+})
 
 local signs = {
     { 'DiagnosticSignError', '' },
     { 'DiagnosticSignWarn', '' },
     { 'DiagnosticSignHint', '' },
-    { 'DiagnosticSignInfo', '' }
+    { 'DiagnosticSignInfo', '' },
 }
 
 for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign[1], {
         texthl = sign[1],
         text = sign[2],
-        numhl = ''
+        numhl = '',
     })
 end
 
