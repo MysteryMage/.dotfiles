@@ -66,6 +66,7 @@ lazy.setup({
     },
 
     'stevearc/oil.nvim',
+    'nmac427/guess-indent.nvim',
 
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',
