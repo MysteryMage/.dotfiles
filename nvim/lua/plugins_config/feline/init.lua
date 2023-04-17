@@ -6,7 +6,7 @@ end
 local feline_lsp           = require('feline.providers.lsp')
 local feline_vi_mode_utils = require('feline.providers.vi_mode')
 
-local colors = require('plugins_config.feline.colors.gruvbox_baby')
+local colors = require('plugins_config.feline.colors.tavern')
 local theme = {
     bg = colors[1],
     fg = colors[6],

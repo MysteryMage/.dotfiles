@@ -1,5 +1,5 @@
 return {
-    '#2a1f1e', -- Background
+    '#1b1413', -- Background
     '#41302e',
     '#58413f',
     '#6f524f',

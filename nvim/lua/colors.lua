@@ -17,4 +17,4 @@ vim.g.gruvbox_baby_background_color = 'dark'
 
 vim.g.tavern_transparent = true
 
-vim.cmd.colorscheme('gruvbox-baby')
+vim.cmd.colorscheme('tavern')
