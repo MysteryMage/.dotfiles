@@ -6,12 +6,12 @@ end
 neorg.setup {
     load = {
         ['core.defaults'] = {},
-        ['core.norg.concealer'] = {
+        ['core.concealer'] = {
             config = {
                 icon_preset = 'varied',
             }
         },
-        ['core.norg.dirman'] = {
+        ['core.dirman'] = {
             config = {
                 workspaces = {
                     main = '~/Notes',
