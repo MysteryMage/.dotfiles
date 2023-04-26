@@ -19,7 +19,7 @@ require('plugins_config.dressing')
 require('plugins_config.oil')
 require('plugins_config.fidget')
 require('plugins_config.dap')
-require('plugins_config.neorg')
 require('plugins_config.guess_indent')
+require('plugins_config.telekasten')
 
 require('colors')

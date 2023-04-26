@@ -68,6 +68,12 @@ lazy.setup({
     'stevearc/oil.nvim',
     'nmac427/guess-indent.nvim',
 
+    {
+        'renerocksai/telekasten.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
+    },
+    'preservim/vim-markdown',
+
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/cmp-buffer',
@@ -97,11 +103,6 @@ lazy.setup({
     },
 
     'nvim-telescope/telescope.nvim',
-    {
-        'nvim-neorg/neorg',
-        build = ':Neorg sync-parsers',
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-    },
 
     'rust-lang/rust.vim',
 

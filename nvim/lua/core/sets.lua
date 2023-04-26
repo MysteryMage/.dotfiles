@@ -13,6 +13,7 @@ vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.wrap = false
 vim.opt.cmdheight = 1
+vim.opt.conceallevel = 2
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
