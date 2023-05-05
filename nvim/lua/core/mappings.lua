@@ -30,14 +30,6 @@ vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
-vim.keymap.set('n', 'zf', ':lua require("telekasten").find_notes()<CR>', opts)
-vim.keymap.set('n', 'zg', ':lua require("telekasten").search_notes()<CR>', opts)
-vim.keymap.set('n', 'zT', ':lua require("telekasten").goto_today()<CR>', opts)
-vim.keymap.set('n', 'zW', ':lua require("telekasten").goto_thisweek()<CR>', opts)
-vim.keymap.set('n', 'zN', ':lua require("telekasten").new_templated_note()<CR>', opts)
-vim.keymap.set('n', 'zt', ':lua require("telekasten").toggle_todo()<CR>', opts)
-vim.keymap.set('n', 'zF', ':lua require("telekasten").find_friends()<CR>', opts)
-
 vim.keymap.set('n', '<leader>sm', function()
     local cmd = vim.fn.input('Compile command: ')
     if cmd and #cmd > 0 then
