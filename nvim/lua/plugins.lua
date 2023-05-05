@@ -68,10 +68,6 @@ lazy.setup({
     'stevearc/oil.nvim',
     'nmac427/guess-indent.nvim',
 
-    {
-        'renerocksai/telekasten.nvim',
-        dependencies = { 'nvim-telescope/telescope.nvim' },
-    },
     'preservim/vim-markdown',
 
     'hrsh7th/cmp-nvim-lsp',
