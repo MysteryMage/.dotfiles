@@ -11,6 +11,7 @@ PS1='%B%F{88}%n%F{white}@%F{94}$(hostname | cut -f1 -d".") %F{white}%1~ ${vcs_in
 stty erase '^?'
 bindkey -e
 
+alias ls="ls --color=auto"
 alias l="ls -lah"
 alias ll="ls -l"
 
@@ -43,3 +44,9 @@ zstyle ':completion:*' menu select
 
 export EDITOR=nvim
 export MANPAGER=bat
+
+if [[ -f /usr/share/nvm/init-nvm.sh ]] then
+    source /usr/share/nvm/init-nvm.sh
+fi
+
+export PATH=~/.local/bin:$PATH
