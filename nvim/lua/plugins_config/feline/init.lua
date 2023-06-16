@@ -42,13 +42,11 @@ table.insert(components.active[1], {
     hl = function()
         local val = {}
 
-        val.bg = colors[2]
         val.fg = feline_vi_mode_utils.get_mode_color()
         val.style = 'bold'
 
         return val
     end,
-    right_sep = 'slant_right'
 })
 
 -- Git Branch
