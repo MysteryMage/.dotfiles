@@ -47,9 +47,9 @@ lspconfig.lua_ls.setup({
 })
 
 local signs = {
-    { 'DiagnosticSignError', '' },
-    { 'DiagnosticSignWarn', '' },
-    { 'DiagnosticSignHint', '' },
+    { 'DiagnosticSignError', '' },
+    { 'DiagnosticSignWarn', '' },
+    { 'DiagnosticSignHint', '󰘥' },
     { 'DiagnosticSignInfo', '' },
 }
 
