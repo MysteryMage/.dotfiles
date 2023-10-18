@@ -28,12 +28,11 @@ lazy.setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
 
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
 
     'habamax/vim-alchemist',
     {
         dir = '~/dev/Plugins.nvim/tavern.nvim',
-        dependencies = 'rktjmp/lush.nvim',
     },
     'luisiacc/gruvbox-baby',
 
@@ -55,8 +54,6 @@ lazy.setup({
             require('nvim-autopairs').setup({})
         end,
     },
-    'https://github.com/j-hui/fidget.nvim',
-
     {
         'folke/todo-comments.nvim',
         dependencies = 'nvim-lua/plenary.nvim',
@@ -65,6 +62,14 @@ lazy.setup({
         end,
     },
 
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    },
     'stevearc/oil.nvim',
     'nmac427/guess-indent.nvim',
 
@@ -97,8 +102,14 @@ lazy.setup({
             treesitter_install.update({ with_sync = true })
         end,
     },
+    'nvim-treesitter/nvim-treesitter-context',
 
     'nvim-telescope/telescope.nvim',
+    {
+        "dzfrias/arena.nvim",
+        event = "BufWinEnter",
+        config = true,
+    },
 
     'rust-lang/rust.vim',
 

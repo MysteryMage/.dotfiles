@@ -19,6 +19,8 @@ vim.keymap.set('n', '<leader>fg', ':Telescope git_files<Cr>', opts)
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<Cr>', opts)
 vim.keymap.set('n', '<leader>g', ':Telescope live_grep<Cr>', opts)
 
+vim.keymap.set('n', '<leader>j', ':ArenaToggle<Cr>', opts)
+
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<Cr>', opts)
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

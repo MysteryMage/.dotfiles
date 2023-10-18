@@ -9,8 +9,6 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
     border = 'rounded',
     sources = {
-        diagnostics.flake8,
-        formatting.black,
         formatting.stylua,
 
         diagnostics.eslint_d,

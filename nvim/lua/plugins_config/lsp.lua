@@ -21,10 +21,11 @@ lspconfig.tsserver.setup({
 })
 lspconfig.volar.setup({})
 
-lspconfig.pyright.setup({})
+lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.rust_analyzer.setup({})
+lspconfig.zls.setup({})
 
 lspconfig.lua_ls.setup({
     settings = {
@@ -36,7 +37,7 @@ lspconfig.lua_ls.setup({
                 globals = { 'vim' },
             },
             workspace = {
-                library = vim.api.nvim_get_runtime_file('', true),
+                library = { vim.api.nvim_get_runtime_file('', true), ['/usr/share/awesome/lib'] = true },
                 checkThirdParty = false,
             },
             telemetry = {
