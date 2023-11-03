@@ -1,0 +1,14 @@
+@theme "./rounded-tavern.rasi"
+
+configuration {
+  display-drun: "";
+  display-window: "";
+  drun-display-format: "{icon} {name}";
+  font: "MapleMono";
+  modi: "window,run,drun";
+  show-icons: true;
+  terminal: "wezterm";
+  drun {
+    fallback-icon: "./beer-icon.png";
+  }
+}

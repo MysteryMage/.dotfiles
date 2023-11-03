@@ -1,0 +1,23 @@
+* {
+  bg: #1b1413;
+  bg-light: #41302e;
+  bg-lighter: #58413f;
+  bg-lightest: #6f524f;
+  fg-dark: #bba2a0;
+  fg: #cbb8b7;
+  fg-light: #dccfcd;
+  fg-lighter: #ece5e4;
+  rose: #cb6077;
+  peach: #c58920;
+  yellow: #e8e80e;
+  green: #05b876;
+  grey-sky: #8ab3b5;
+  blue: #5a86d3;
+  crimson: #a34d5f;
+  red-plaines: #b0987a;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 15;
+}

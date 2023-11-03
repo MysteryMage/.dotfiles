@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+menu() {
+    echo -e $'\n\n\n\n' | rofi -theme ~/.config/rofi/powermenu.rasi -dmenu -i -p "Power Menu"
+}
+
+choice="$(menu)"
+
+case $choice in 
+    "")
+        systemctl poweroff
+        ;;
+    "")
+        systemctl reboot
+        ;;
+    "")
+        betterlockscreen -l
+        ;;
+    "")
+        systemctl suspend && \
+        betterlockscreen -l
+        ;;
+    "")
+        qtile cmd-obj -o cmd -f shutdown
+        ;;
+    *)
+        ;;
+esac

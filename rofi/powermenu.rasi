@@ -1,0 +1,55 @@
+configuration {
+  modi: "window,run,drun";
+  location: 3;
+  xoffset: -25;
+  yoffset: 65;
+  show-icons: false;
+}
+
+@theme "~/.config/rofi/theme.rasi"
+
+window {
+  width: 23em;
+  border: 2;
+  border-color: @bg-lighter;
+  border-radius: 0.5em;
+  childern: [ mainbox ];
+}
+
+element {
+  padding: 15 0 15 0 ;
+  text-color: @fg;
+  background-color: @bg-light;
+  border-radius: 0;
+  orientation: vertical;
+  border-radius: 8 8 8 8;
+}
+
+element selected {
+  text-color: @bg;
+  background-color: @fg-dark;
+  border: 0;
+  border-color: @bg-light;
+}
+
+element-text {
+  background-color: inherit;
+  margin: 5 0 5 -4;
+  text-color: inherit;
+  font: "JetBrainsMonoNL Nerd Font Mono 45";
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+listview {
+  padding: 15 15 15 15;
+  background-color: @bg;
+  columns: 5;
+  lines: 1;
+  fixed-lines: true;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [ listview ];
+}
