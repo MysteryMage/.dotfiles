@@ -6,9 +6,13 @@ local util = require("util")
 
 return function()
 	return {
-		awful.widget.keyboardlayout(),
+		{
+			awful.widget.keyboardlayout(),
+			widget = wibox.container.margin,
+			margins = { left = dpi(6), right = dpi(6) },
+		},
 		widget = wibox.container.background,
-		shape = util.rrect(dpi(6)),
+		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
 	}
 end

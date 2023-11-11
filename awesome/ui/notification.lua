@@ -1,6 +1,5 @@
 local dpi = require("beautiful").xresources.apply_dpi
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local util = require("util")
@@ -12,7 +11,7 @@ local function get_notif_image(n)
 		return {
 			widget = wibox.widget.imagebox,
 			image = n.image,
-			clip_shape = util.rrect(dpi(6)),
+			clip_shape = util.rrect(beautiful.global_radius),
 			forced_height = dpi(80),
 			forced_width = dpi(80),
 		}
@@ -21,14 +20,14 @@ local function get_notif_image(n)
 	return {
 		widget = wibox.widget.textbox,
 		font = "38",
-		markup = "<span foreground='" .. beautiful.bg_urgent .. "'> </span>",
+		markup = "<span foreground='" .. beautiful.bg_urgent .. "'></span>",
 	}
 end
 
 naughty.connect_signal("request::display", function(n)
 	naughty.layout.box({
 		notification = n,
-		shape = util.rrect(6),
+		shape = util.rrect(beautiful.global_radius),
 		minimum_width = dpi(600),
 		maximum_width = dpi(650),
 		height = dpi(160),
@@ -39,7 +38,7 @@ naughty.connect_signal("request::display", function(n)
 				{
 					widget = wibox.container.background,
 					bg = beautiful.notification_image_bg,
-					shape = util.rrect(6),
+					shape = util.rrect(beautiful.global_radius),
 					forced_width = dpi(90),
 					{
 						get_notif_image(n),
@@ -63,7 +62,8 @@ naughty.connect_signal("request::display", function(n)
 								},
 								{
 									widget = wibox.widget.textbox,
-									markup = util.ellipsize(n.message, 30),
+									-- markup = util.ellipsize(n.message, 30),
+									markup = n.message,
 									font = "JetBrainsMonoNL Nerd Font Mono 16",
 									align = "left",
 								},
@@ -101,7 +101,7 @@ naughty.connect_signal("request::display", function(n)
 									},
 									bg = beautiful.notification_image_bg,
 									widget = wibox.container.background,
-									shape = util.rrect(6),
+									shape = util.rrect(beautiful.global_radius),
 								},
 								widget = wibox.container.margin,
 								margins = { bottom = dpi(6), right = dpi(6), top = dpi(3) },
@@ -121,7 +121,7 @@ naughty.connect_signal("request::display", function(n)
 				},
 			},
 			bg = beautiful.notification_bg,
-			shape = util.rrect(dpi(6)),
+			shape = util.rrect(beautiful.global_radius),
 			widget = naughty.container.background,
 		},
 	})

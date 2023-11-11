@@ -9,6 +9,7 @@ local clock = require("ui.bar.components.clock")
 local language = require("ui.bar.components.language")
 local taglist = require("ui.bar.components.taglist")
 local systray = require("ui.bar.components.systray")
+local battery = require("ui.bar.components.battery")
 
 awful.screen.connect_for_each_screen(function(s)
 	s.layoutbox = awful.widget.layoutbox(s)
@@ -59,6 +60,7 @@ awful.screen.connect_for_each_screen(function(s)
 						widget = wibox.container.margin,
 						margins = { right = dpi(12) },
 					},
+					battery,
 					language(),
 					clock(),
 					spacing = dpi(8),

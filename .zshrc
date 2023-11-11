@@ -55,6 +55,7 @@ autoload -U compinit; compinit
 setopt MENU_COMPLETE
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
+bindkey '^[[Z' reverse-menu-complete
 
 export EDITOR=nvim
 export MANPAGER=bat

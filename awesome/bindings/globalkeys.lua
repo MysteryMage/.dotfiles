@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 return gears.table.join(
@@ -113,10 +114,10 @@ return gears.table.join(
 
 	-- Prompt
 	awful.key({ RC.vars.modkey }, "r", function()
-		awful.spawn.with_shell("rofi -show drun")
+		awful.spawn.with_shell("rofi -show drun -dpi 0")
 	end, { description = "Select app with rofi", group = "launcher" }),
 	awful.key({ RC.vars.modkey }, "s", function()
-		awful.spawn.with_shell("rofi -show window")
+		awful.spawn.with_shell("rofi -show window -dpi 0")
 	end, { description = "Select window with rofi", group = "launcher" }),
 	awful.key({ RC.vars.modkey, "Shift" }, "p", function()
 		awful.spawn.with_shell("~/.config/rofi/bin/powermenu")
@@ -126,5 +127,36 @@ return gears.table.join(
 	end, { description = "Switch languages", group = "other" }),
 	awful.key({ RC.vars.modkey }, "Return", function()
 		awful.spawn(RC.vars.terminal)
-	end, { description = "open a terminal", group = "launcher" })
+	end, { description = "Open a terminal", group = "launcher" }),
+
+	-- Audio
+	awful.key({}, "XF86AudioRaiseVolume", function()
+		awful.spawn.easy_async_with_shell("~/.config/awesome/scripts/volume.sh increase 5", function(stdout)
+			local volume = tonumber(stdout)
+			awesome.emit_signal("signal::volume", volume)
+		end)
+	end, { description = "Increase volume", group = "audio" }),
+	awful.key({}, "XF86AudioLowerVolume", function()
+		awful.spawn.easy_async_with_shell("~/.config/awesome/scripts/volume.sh decrease 5", function(stdout)
+			local volume = tonumber(stdout)
+			awesome.emit_signal("signal::volume", volume)
+		end)
+	end, { description = "Decrease volume", group = "audio" }),
+	awful.key({}, "XF86AudioMute", function()
+		awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+	end, { description = "Mute volume", group = "audio" }),
+
+	-- Brightness
+	awful.key({}, "XF86MonBrightnessUp", function()
+		awful.spawn.easy_async_with_shell("~/.config/awesome/scripts/brightness.sh increase 2", function(stdout)
+			local brightness = tonumber(stdout)
+			awesome.emit_signal("signal::brightness", brightness)
+		end)
+	end, { description = "Increase brightness", group = "brightness" }),
+	awful.key({}, "XF86MonBrightnessDown", function()
+		awful.spawn.easy_async_with_shell("~/.config/awesome/scripts/brightness.sh decrease 2", function(stdout)
+			local brightness = tonumber(stdout)
+			awesome.emit_signal("signal::brightness", brightness)
+		end)
+	end, { description = "Decrease brightness", group = "brightness" })
 )

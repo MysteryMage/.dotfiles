@@ -47,6 +47,19 @@ theme.taglist_bg_focus = "#D8814B"
 theme.taglist_bg_occupied = "#6f524f"
 theme.taglist_bg_empty = "#58413f"
 
+theme.battery_charge = "#BB3075"
+theme.battery_ok = "#AEB848"
+theme.battery_low = "#C79C0B"
+theme.battery_extreme_low = "#D0472F"
+
+theme.popup_bg = "#1b1413"
+theme.popup_border = "#41302e"
+theme.volume_progress_color = "#D8814B"
+theme.volume_progress_bg = "#41302e"
+
+theme.brightness_progress_color = "#D8814B"
+theme.brightness_progress_bg = "#41302e"
+
 -- Variables set for theming notifications:
 -- notification_font
 -- notification_[bg|fg]
@@ -62,6 +75,8 @@ theme.notification_border_width = dpi(2)
 theme.notification_margin = dpi(8)
 
 theme.bar_lighter_bg = "#41302e"
+
+theme.global_radius = 24
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

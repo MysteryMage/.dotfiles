@@ -41,6 +41,8 @@ root.buttons(binding.globalbuttons)
 
 require("ui.bar")
 require("ui.notification")
+require('ui.popups.volume')
+require('ui.popups.brightness')
 
 awful.rules.rules = main.rules.get(
     binding.clientkeys,

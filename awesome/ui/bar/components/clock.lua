@@ -11,7 +11,7 @@ return function()
 			margins = { top = dpi(6), left = dpi(12), right = dpi(12), bottom = dpi(6) },
 		},
 		widget = wibox.container.background,
-		shape = util.rrect(6),
+		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
 	}
 end

@@ -33,9 +33,9 @@ return function(s)
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		style = {
-			shape_empty = util.rrect(dpi(6)),
-			shape_focus = util.rrect(dpi(6)),
-			shape = util.rrect(dpi(6)),
+			shape_empty = util.rrect(beautiful.global_radius),
+			shape_focus = util.rrect(beautiful.global_radius),
+			shape = util.rrect(beautiful.global_radius),
 		},
 		buttons = taglist_buttons,
 		layout = {
@@ -81,7 +81,7 @@ return function(s)
 			margins = { top = dpi(8), bottom = dpi(8), left = dpi(16), right = dpi(16) },
 		},
 		widget = wibox.container.background,
-		shape = util.rrect(6),
+		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
 	}
 end

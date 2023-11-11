@@ -6,7 +6,7 @@ end
 
 local treesitter_configs  = require('nvim-treesitter.configs')
 
-treesitter_install.compilers = { 'clang' }
+treesitter_install.compilers = { 'clang', 'gcc' }
 treesitter_configs.setup {
     ensure_installed = { 'c', 'cpp', 'python', 'java', 'javascript', 'vim', 'lua', 'rust', 'go', 'html', 'css',
         'markdown' },

@@ -14,11 +14,11 @@
     fg1:    #cbb8b7;
     fg2:    #dccfcd;
     fg3:    #ece5e4;
-    border-rad: 6px; // 16px
+    border-rad: 24px; // 16px
 }
 
 * {
-    font:   "MapleMono 16";
+    font:   "JetBrainsMono 32";
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -30,8 +30,8 @@
 
 window {
     location:       center;
-    width:          860; // 1024;
-    height:         700;
+    width:          15em; // 1024;
+    height:         18em;
     // border-radius:  24px;
     border-radius:  0px;
     

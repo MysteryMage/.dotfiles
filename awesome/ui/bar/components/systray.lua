@@ -17,7 +17,7 @@ return function()
 		widget = {
 			widget = wibox.container.background,
 			bg = beautiful.bg_normal,
-			shape = util.rrect(6),
+			shape = util.rrect(beautiful.global_radius),
 			forced_width = dpi(40),
 			forced_height = dpi(120),
 			{
