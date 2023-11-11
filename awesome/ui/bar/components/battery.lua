@@ -20,7 +20,6 @@ local battery = wibox.widget({
 })
 
 local battery_text = wibox.widget({
-	font = "JetBrainsMono " .. "14",
 	widget = wibox.widget.textbox,
 	valign = "center",
 	align = "center",

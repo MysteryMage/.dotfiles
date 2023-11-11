@@ -32,7 +32,7 @@ awful.screen.connect_for_each_screen(function(s)
 		position = "top",
 		margins = { top = dpi(0), left = dpi(0), right = dpi(0), bottom = dpi(0) },
 		screen = s,
-		height = dpi(50),
+		height = beautiful.bar_height,
 	})
 
 	s.mywibox:setup({

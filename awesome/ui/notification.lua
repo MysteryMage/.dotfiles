@@ -54,7 +54,7 @@ naughty.connect_signal("request::display", function(n)
 									{
 										widget = wibox.widget.textbox,
 										markup = "<span weight='bold'>" .. util.ellipsize(n.title, 25) .. "</span>",
-										font = "JetBrainsMonoNL Nerd Font Mono 18",
+										font = "Inter SemiBold 18",
 										align = "left",
 									},
 									margins = { top = dpi(5) },
@@ -64,7 +64,7 @@ naughty.connect_signal("request::display", function(n)
 									widget = wibox.widget.textbox,
 									-- markup = util.ellipsize(n.message, 30),
 									markup = n.message,
-									font = "JetBrainsMonoNL Nerd Font Mono 16",
+									font = "Inter SemiBold 16",
 									align = "left",
 								},
 								spacing = 8,
@@ -87,7 +87,7 @@ naughty.connect_signal("request::display", function(n)
 											{
 												{
 													id = "text_role",
-													font = "JetBrainsMonoNL Nerd Font Mono 14",
+													font = "Inter SemiBold 14",
 													widget = wibox.widget.textbox,
 												},
 												left = dpi(6),

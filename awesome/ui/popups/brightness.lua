@@ -23,47 +23,57 @@ local brightness_precentage = wibox.widget({
 	widget = wibox.widget.textbox,
 })
 
-local brightness_popup = awful.popup({
+local brightness_popup = wibox({
 	widget = {
+		layout = wibox.container.place,
 		{
 			{
 				{
-					text = "󰃟",
-					font = "36",
-					widget = wibox.widget.textbox,
-				},
-				spacing = dpi(15),
-				{
 					{
-						brightness_progress_bar,
-						brightness_precentage,
-						layout = wibox.layout.stack,
+						{
+							image = gears.filesystem.get_configuration_dir() .. "tavern/icons/brightness-medium.svg",
+							stylesheet = "* { fill: " .. beautiful.fg_focus .. "}",
+							forced_width = dpi(55),
+							forced_height = dpi(55),
+							widget = wibox.widget.imagebox,
+						},
+						widget = wibox.container.place,
+						valign = "center",
 					},
-					margins = { top = dpi(22), bottom = dpi(22), left = dpi(6) },
-					widget = wibox.container.margin,
+					spacing = dpi(15),
+					{
+						{
+							brightness_progress_bar,
+							brightness_precentage,
+							layout = wibox.layout.stack,
+						},
+						margins = { top = dpi(22), bottom = dpi(22), left = dpi(6) },
+						widget = wibox.container.margin,
+					},
+					layout = wibox.layout.fixed.horizontal,
 				},
-				layout = wibox.layout.fixed.horizontal,
+				margins = { right = dpi(25), left = dpi(25) },
+				widget = wibox.container.margin,
 			},
-			margins = { right = dpi(25), left = dpi(25) },
+			margins = 10,
 			widget = wibox.container.margin,
 		},
-		margins = 10,
-		widget = wibox.container.margin,
 	},
+	height = dpi(120),
+	width = dpi(320),
+	border_color = beautiful.popup_border,
+	border_width = 2,
 	bg = beautiful.popup_bg,
-	ontop = true,
-	placement = function(d)
-		return awful.placement.top_right(d, {
-			offset = {
-				y = 120,
-				x = -20,
-			},
-		})
-	end,
-	hide_on_right_click = true,
-	offset = { y = 60 },
 	shape = util.rrect(beautiful.global_radius),
+	ontop = true,
 	visible = false,
+})
+
+awful.placement.top_right(brightness_popup, {
+	offset = {
+		x = -25,
+		y = beautiful.bar_height + 25,
+	},
 })
 
 local brightness_disappear_timer = gears.timer({
