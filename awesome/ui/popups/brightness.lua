@@ -71,8 +71,8 @@ local brightness_popup = wibox({
 
 awful.placement.top_right(brightness_popup, {
 	offset = {
-		x = -25,
-		y = beautiful.bar_height + 25,
+		x = -beautiful.useless_gap,
+		y = beautiful.bar_height + beautiful.useless_gap,
 	},
 })
 

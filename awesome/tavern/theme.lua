@@ -20,13 +20,14 @@ theme.bg_focus = "#D8814B"
 theme.bg_urgent = "#C79C0B"
 theme.bg_minimize = "#A37B41"
 theme.bg_systray = theme.bg_normal
+theme.bg_light = "#41302e"
 
 theme.fg_normal = "#cbb8b7"
 theme.fg_focus = "#ece5e4"
 theme.fg_urgent = "#ece5e4"
 theme.fg_minimize = "#ece5e4"
 
-theme.useless_gap = dpi(0)
+theme.useless_gap = dpi(8)
 theme.border_width = dpi(0)
 theme.border_normal = "#1b1413"
 theme.border_focus = "#B3A532"

@@ -25,9 +25,11 @@ return function(s)
 		end)
 	)
 
-	return awful.widget.tasklist({
+	local tasklist = awful.widget.tasklist({
 		screen = s,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 	})
+
+	return tasklist
 end

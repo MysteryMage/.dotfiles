@@ -13,7 +13,6 @@ RC.vars = require("main.variables")
 require("main.error-handling")
 
 beautiful.init(gears.filesystem.get_dir("config") .. "/tavern/theme.lua")
-beautiful.useless_gap = dpi(8)
 require("ui.wallpaper")
 
 local main = {
@@ -41,8 +40,8 @@ root.buttons(binding.globalbuttons)
 
 require("ui.bar")
 require("ui.notification")
-require('ui.popups.volume')
-require('ui.popups.brightness')
+require('ui.popups')
+require('main.modules')
 
 awful.rules.rules = main.rules.get(
     binding.clientkeys,

@@ -5,7 +5,7 @@ local dpi = beautiful.xresources.apply_dpi
 local util = require("util")
 
 return function()
-	return {
+	local language = wibox.widget({
 		{
 			awful.widget.keyboardlayout(),
 			widget = wibox.container.margin,
@@ -14,5 +14,7 @@ return function()
 		widget = wibox.container.background,
 		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
-	}
+	})
+
+	return language
 end

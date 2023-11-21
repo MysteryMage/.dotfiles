@@ -74,7 +74,7 @@ return function(s)
 		},
 	})
 
-	return {
+	local taglist_container = wibox.widget({
 		{
 			taglist,
 			widget = wibox.container.margin,
@@ -83,5 +83,7 @@ return function(s)
 		widget = wibox.container.background,
 		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
-	}
+	})
+
+	return taglist_container
 end

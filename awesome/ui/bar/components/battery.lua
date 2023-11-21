@@ -1,13 +1,7 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local util = require("util")
-local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
-
-local is_visible = false
-if gears.filesystem.file_readable("/sys/class/power_supply/BAT0/capacity") then
-	is_visible = true
-end
 
 local battery = wibox.widget({
 	id = "battery",
@@ -41,17 +35,21 @@ local batstatus = wibox.widget({
 	bg = beautiful.bar_lighter_bg,
 	widget = wibox.container.background,
 	shape = util.rrect(beautiful.global_radius),
-	visible = is_visible,
 })
 
 awesome.connect_signal("signal::battery", function(value, state)
+	if state == "N/A" then
+		batstatus.visible = false
+		return
+	end
+
 	local b = battery
 	b.state = state
 	b.value = value
 
-	battery_text.markup = "<span foreground='" .. beautiful.fg_focus .. "'><b>" .. value .. "%</b></span>"
+	battery_text.markup = "<span foreground='" .. beautiful.fg_focus .. "'><b>" .. math.floor(value) .. "%</b></span>"
 
-	if state then
+	if state == "Charging" then
 		b.color = beautiful.battery_charge
 		b.background_color = beautiful.battery_charge .. "60"
 	elseif value < 18 then

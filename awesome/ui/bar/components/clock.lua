@@ -4,7 +4,7 @@ local dpi = beautiful.xresources.apply_dpi
 local util = require("util")
 
 return function()
-	return {
+	local clock = wibox.widget({
 		{
 			wibox.widget.textclock("%H:%M"),
 			widget = wibox.container.margin,
@@ -13,5 +13,7 @@ return function()
 		widget = wibox.container.background,
 		shape = util.rrect(beautiful.global_radius),
 		bg = beautiful.bar_lighter_bg,
-	}
+	})
+
+	return clock
 end
