@@ -31,7 +31,7 @@ local brightness_popup = wibox({
 				{
 					{
 						{
-							image = gears.filesystem.get_configuration_dir() .. "tavern/icons/brightness-medium.svg",
+							image = gears.filesystem.get_configuration_dir() .. "theme/icons/brightness-medium.svg",
 							stylesheet = "* { fill: " .. beautiful.fg_focus .. "}",
 							forced_width = dpi(55),
 							forced_height = dpi(55),

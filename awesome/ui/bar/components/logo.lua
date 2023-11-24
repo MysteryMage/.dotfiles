@@ -13,7 +13,7 @@ return function()
 		{
 			{
 				widget = wibox.widget.imagebox,
-				image = gears.filesystem.get_configuration_dir() .. "tavern/icons/menu.svg",
+				image = gears.filesystem.get_configuration_dir() .. "theme/icons/menu.svg",
 				stylesheet = "* { fill: " .. beautiful.fg_normal .. "}",
 			},
 			widget = wibox.container.margin,

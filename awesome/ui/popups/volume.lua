@@ -31,7 +31,7 @@ local volume_popup = wibox({
 				{
 					{
 						{
-							image = gears.filesystem.get_configuration_dir() .. "tavern/icons/volume-up.svg",
+							image = gears.filesystem.get_configuration_dir() .. "theme/icons/volume-up.svg",
 							stylesheet = "* { fill: " .. beautiful.fg_focus .. "}",
 							forced_width = dpi(55),
 							forced_height = dpi(55),

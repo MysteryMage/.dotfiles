@@ -12,7 +12,7 @@ RC.vars = require("main.variables")
 
 require("main.error-handling")
 
-beautiful.init(gears.filesystem.get_dir("config") .. "/tavern/theme.lua")
+beautiful.init(gears.filesystem.get_dir("config") .. "/theme/theme.lua")
 require("ui.wallpaper")
 
 local main = {
