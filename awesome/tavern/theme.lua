@@ -79,7 +79,7 @@ theme.notification_margin = dpi(8)
 
 theme.bar_lighter_bg = "#41302e"
 
-theme.global_radius = 16
+theme.global_radius = dpi(8)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
