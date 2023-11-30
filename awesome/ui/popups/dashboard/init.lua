@@ -3,16 +3,7 @@ local wibox = require("wibox")
 local util = require("util")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
-
-local music_bar = wibox.widget({
-	{
-		widget = wibox.container.background,
-		bg = beautiful.bg_light,
-		shape = util.rrect(beautiful.global_radius),
-	},
-	widget = wibox.container.margin,
-	margins = dpi(6),
-})
+local music_info = require("ui.popups.dashboard.music")
 
 local dashboard_popup = wibox({
 	widget = {
@@ -28,23 +19,20 @@ local dashboard_popup = wibox({
 			},
 			{
 				{
-					{
-						widget = wibox.container.background,
-						bg = beautiful.bg_light,
-						shape = util.rrect(beautiful.global_radius),
-					},
-					widget = wibox.container.margin,
-					margins = dpi(6),
+					widget = wibox.container.background,
+					bg = beautiful.bg_light,
+					shape = util.rrect(beautiful.global_radius),
 				},
-				music_bar,
-				layout = wibox.layout.flex.vertical,
+				widget = wibox.container.margin,
+				margins = dpi(6),
 			},
+			music_info,
 			layout = wibox.layout.flex.vertical,
 		},
 		widget = wibox.container.margin,
 		margins = dpi(6),
 	},
-	height = awful.screen.focused().geometry.height - beautiful.bar_height - beautiful.useless_gap * 2,
+	height = (awful.screen.focused().geometry.height - beautiful.bar_height - beautiful.useless_gap * 2) * 0.75,
 	width = awful.screen.focused().geometry.width * 0.3,
 	border_color = beautiful.popup_border,
 	border_width = 2,
@@ -63,8 +51,4 @@ awful.placement.top_left(dashboard_popup, {
 
 awesome.connect_signal("signal::dashboard", function()
 	dashboard_popup.visible = not dashboard_popup.visible
-
-	if dashboard_popup.visible then
-		-- Do things on visible
-	end
 end)

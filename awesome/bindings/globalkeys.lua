@@ -158,5 +158,8 @@ return gears.table.join(
 			local brightness = tonumber(stdout)
 			awesome.emit_signal("signal::brightness", brightness)
 		end)
-	end, { description = "Decrease brightness", group = "brightness" })
+	end, { description = "Decrease brightness", group = "brightness" }),
+	awful.key({ RC.vars.modkey }, "d", function()
+		awesome.emit_signal("signal::dashboard")
+	end, { description = "Toggle dashboard", group = "ui" })
 )

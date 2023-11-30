@@ -12,21 +12,21 @@ RC.vars = require("main.variables")
 
 require("main.error-handling")
 
-beautiful.init(gears.filesystem.get_dir("config") .. "/theme/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 require("ui.wallpaper")
 
 local main = {
-    layouts = require("main.layouts"),
-    tags    = require("main.tags"),
-    rules   = require("main.rules"),
+	layouts = require("main.layouts"),
+	tags = require("main.tags"),
+	rules = require("main.rules"),
 }
 
 local binding = {
-    globalbuttons = require("bindings.globalbuttons"),
-    clientbuttons = require("bindings.clientbuttons"),
-    globalkeys    = require("bindings.globalkeys"),
-    bindtotags    = require("bindings.tagsbindings"),
-    clientkeys    = require("bindings.clientkeys")
+	globalbuttons = require("bindings.globalbuttons"),
+	clientbuttons = require("bindings.clientbuttons"),
+	globalkeys = require("bindings.globalkeys"),
+	bindtotags = require("bindings.tagsbindings"),
+	clientkeys = require("bindings.clientkeys"),
 }
 
 RC.layouts = main.layouts
@@ -38,16 +38,13 @@ RC.globalkeys = binding.bindtotags.get(RC.globalkeys)
 root.keys(RC.globalkeys)
 root.buttons(binding.globalbuttons)
 
-require("ui.bar")
-require("ui.notification")
-require('ui.popups')
-require('main.modules')
-
-awful.rules.rules = main.rules.get(
-    binding.clientkeys,
-    binding.clientbuttons
-)
+awful.rules.rules = main.rules.get(binding.clientkeys, binding.clientbuttons)
 
 require("main.signals")
+require("ui.bar")
 
-awful.spawn.with_shell(gears.filesystem.get_dir("config") .. "/scripts/autostart.sh")
+awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "scripts/autostart.sh")
+
+require("main.modules")
+require("ui.notification")
+require("ui.popups")

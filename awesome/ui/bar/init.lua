@@ -40,15 +40,20 @@ awful.screen.connect_for_each_screen(function(s)
 			widget = wibox.container.margin,
 			margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
 			{
-				logo(),
-				layout = wibox.layout.fixed.horizontal,
+				{
+					logo(),
+					taglist(s),
+					spacing = dpi(8),
+					layout = wibox.layout.fixed.horizontal,
+				},
+				widget = wibox.container.place,
+				halign = "left",
 			},
 		},
-		{
-			taglist(s),
-			widget = wibox.container.place,
-			halign = "center",
-		},
+		-- {
+		-- 	widget = wibox.container.place,
+		-- 	halign = "center",
+		-- },
 		{
 			{
 				{
@@ -70,7 +75,7 @@ awful.screen.connect_for_each_screen(function(s)
 				halign = "right",
 			},
 			widget = wibox.container.margin,
-			margins = { right = dpi(8) },
+			margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
 		},
 		layout = wibox.layout.flex.horizontal,
 	})

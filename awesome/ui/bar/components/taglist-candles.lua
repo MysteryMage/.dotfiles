@@ -2,12 +2,10 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 local dpi = beautiful.xresources.apply_dpi
 local util = require("util")
 
--- Beer mugs with different fill levels.
--- Candels that are lit based on active.
--- Playing cards?
 return function(s)
 	local taglist_buttons = gears.table.join(
 		awful.button({}, 1, function(t)
@@ -32,42 +30,43 @@ return function(s)
 		end)
 	)
 
+	local candle_config = {
+		{ type = "wide" },
+		{ type = "thin" },
+		{ type = "wide" },
+		{ type = "wide" },
+		{ type = "thin" },
+	}
+
 	local taglist = awful.widget.taglist({
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
-		style = {
-			shape_empty = util.rrect(beautiful.global_radius),
-			shape_focus = util.rrect(beautiful.global_radius),
-			shape = util.rrect(beautiful.global_radius),
-		},
 		buttons = taglist_buttons,
 		layout = {
-			spacing = dpi(8),
+			spacing = dpi(20),
 			layout = wibox.layout.fixed.horizontal,
 		},
 		widget_template = {
-			id = "background_role",
-			widget = wibox.container.background,
-			{
-				{
-					text = "",
-					widget = wibox.widget.textbox,
-				},
-				widget = wibox.container.margin,
-				margins = { bottom = dpi(6), top = dpi(6), left = dpi(16), right = dpi(16) },
-				forced_height = dpi(16),
-			},
+			id = "candle",
+			image = gears.filesystem.get_configuration_dir() .. "theme/icons/candle-wide.svg",
+			widget = wibox.widget.imagebox,
 			create_callback = function(self, tag)
-				local bar = self:get_children_by_id("background_role")[1]
+				local bar = self:get_children_by_id("candle")[1]
+
 				self.update = function()
 					if tag.selected then
-						bar.forced_width = dpi(54)
-					elseif #tag:clients() > 0 then
-						bar.forced_width = dpi(44)
+						bar.image = gears.filesystem.get_configuration_dir()
+							.. "theme/icons/candle-"
+							.. candle_config[tag.index].type
+							.. "-lit.svg"
 					else
-						bar.forced_width = dpi(24)
+						bar.image = gears.filesystem.get_configuration_dir()
+							.. "theme/icons/candle-"
+							.. candle_config[tag.index].type
+							.. ".svg"
 					end
 				end
+
 				self.update()
 			end,
 
@@ -81,7 +80,7 @@ return function(s)
 		{
 			taglist,
 			widget = wibox.container.margin,
-			margins = { top = dpi(8), bottom = dpi(8), left = dpi(16), right = dpi(16) },
+			margins = { top = dpi(6), bottom = dpi(6), left = dpi(16), right = dpi(16) },
 		},
 		widget = wibox.container.background,
 		shape = util.rrect(beautiful.global_radius),

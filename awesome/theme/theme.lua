@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.bar_height = dpi(50)
+theme.bar_height = dpi(55)
 
 theme.font = "Inter SemiBold 14"
 

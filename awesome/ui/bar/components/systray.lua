@@ -6,12 +6,12 @@ local dpi = beautiful.xresources.apply_dpi
 local util = require("util")
 
 return function()
-    local systray_button = wibox.widget({
+	local systray_button = wibox.widget({
 		widget = wibox.widget.textbox,
 		text = "",
 	})
 
-    local systray = awful.popup({
+	local systray = awful.popup({
 		ontop = true,
 		visible = false,
 		widget = {
@@ -47,5 +47,5 @@ return function()
 		end)
 	))
 
-    return systray_button
+	return systray_button
 end

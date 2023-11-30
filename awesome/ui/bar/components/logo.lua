@@ -12,12 +12,17 @@ return function()
 		bg = beautiful.bar_lighter_bg,
 		{
 			{
-				widget = wibox.widget.imagebox,
-				image = gears.filesystem.get_configuration_dir() .. "theme/icons/menu.svg",
-				stylesheet = "* { fill: " .. beautiful.fg_normal .. "}",
+				{
+					widget = wibox.widget.imagebox,
+					image = gears.filesystem.get_configuration_dir() .. "theme/icons/coin.svg",
+					forced_height = dpi(28),
+					forced_width = dpi(28),
+				},
+				widget = wibox.container.margin,
+				margins = { left = dpi(16), right = dpi(16), top = dpi(6), bottom = dpi(6) },
 			},
-			widget = wibox.container.margin,
-			margins = { left = dpi(12), right = dpi(12) },
+			widget = wibox.container.place,
+			valign = "center",
 		},
 	})
 
@@ -27,6 +32,8 @@ return function()
 			awesome.emit_signal("signal::dashboard")
 		end)
 	))
+
+	util.change_cursor_on_hover(logo, "hand2")
 
 	return logo
 end
