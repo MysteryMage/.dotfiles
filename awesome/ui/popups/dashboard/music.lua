@@ -74,10 +74,15 @@ skip_next:buttons(gears.table.join(
 	end)
 ))
 
+local margined_art = util.add_margin_to_widget(album_art, 16)
+
 local music_info = wibox.widget({
 	{
 		{
-			util.add_margin_to_widget(album_art, 16),
+			{
+				margined_art,
+				widget = wibox.container.place,
+			},
 			util.add_margin_to_widget({
 				{
 					{
@@ -104,7 +109,8 @@ local music_info = wibox.widget({
 				widget = wibox.container.place,
 				fill_horizontal = true,
 			}, dpi(2)),
-			layout = wibox.layout.fixed.horizontal,
+			id = "ratio_layout",
+			layout = wibox.layout.ratio.horizontal,
 		},
 		widget = wibox.container.background,
 		bg = beautiful.bg_light,
@@ -114,10 +120,20 @@ local music_info = wibox.widget({
 	margins = dpi(6),
 })
 
+music_info:get_children_by_id("ratio_layout")[1]:adjust_ratio(1, 0, 0.4, 0.6)
+
 local prev_album_art_path = ""
 
 playerctl:connect_signal("metadata", function(_, title, artist, album_path, _album, _new, _player_name)
-	album_art:set_image(gears.surface.load_uncached(album_path))
+	if not album_path then
+		margined_art.margins = 0
+		album_art.visible = false
+	else
+		album_art:set_image(gears.surface.load_uncached(album_path))
+		margined_art.margins = 16
+		album_art.visible = true
+	end
+
 	song_name:set_markup_silently(util.ellipsize(title, 24))
 	artist_name:set_markup_silently(
 		"<span foreground='" .. beautiful.fg_normal .. "77" .. "'>" .. util.ellipsize(artist, 24) .. "</span>"

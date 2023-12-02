@@ -63,6 +63,11 @@ theme.volume_progress_bg = "#41302e"
 theme.brightness_progress_color = "#D8814B"
 theme.brightness_progress_bg = "#41302e"
 
+theme.power = "#CBB8B7"
+theme.reboot = "#CBB8B7AA"
+theme.sleep = "#CBB8B7AA"
+theme.lock = "#CBB8B7"
+
 -- Variables set for theming notifications:
 -- notification_font
 -- notification_[bg|fg]

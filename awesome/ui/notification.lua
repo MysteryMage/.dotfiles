@@ -8,13 +8,15 @@ naughty.config.defaults["icon_size"] = dpi(92)
 
 local function get_notif_image(n)
 	if n.image then
-		return {
-			widget = wibox.widget.imagebox,
-			image = n.image,
-			clip_shape = util.rrect(beautiful.global_radius),
-			forced_height = dpi(80),
-			forced_width = dpi(80),
-		}
+		return wibox.widget({
+			{
+				widget = wibox.widget.imagebox,
+				image = n.image,
+				clip_shape = util.rrect(beautiful.global_radius),
+			},
+			widget = wibox.container.margin,
+			margins = dpi(2),
+		})
 	end
 
 	return {
@@ -28,9 +30,10 @@ naughty.connect_signal("request::display", function(n)
 	naughty.layout.box({
 		notification = n,
 		shape = util.rrect(beautiful.global_radius),
-		minimum_width = dpi(600),
+		minimum_width = dpi(650),
 		maximum_width = dpi(650),
-		height = dpi(160),
+		minimum_height = dpi(120),
+		maximum_height = dpi(120),
 		widget_template = {
 			{
 				spacing = 10,
@@ -39,7 +42,7 @@ naughty.connect_signal("request::display", function(n)
 					widget = wibox.container.background,
 					bg = beautiful.notification_image_bg,
 					shape = util.rrect(beautiful.global_radius),
-					forced_width = dpi(90),
+					forced_width = dpi(170),
 					{
 						get_notif_image(n),
 						widget = wibox.container.place,
@@ -62,8 +65,11 @@ naughty.connect_signal("request::display", function(n)
 								},
 								{
 									widget = wibox.widget.textbox,
-									-- markup = util.ellipsize(n.message, 30),
-									markup = n.message,
+									markup = "<span foreground='"
+										.. beautiful.fg_normal
+										.. "dd'>"
+										.. n.message
+										.. "</span>",
 									font = "Inter SemiBold 16",
 									align = "left",
 								},

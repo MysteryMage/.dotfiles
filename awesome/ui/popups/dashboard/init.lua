@@ -4,6 +4,8 @@ local util = require("util")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local music_info = require("ui.popups.dashboard.music")
+local powermenu = require("ui.popups.dashboard.power")
+local date = require("ui.popups.dashboard.date")
 
 local dashboard_popup = wibox({
 	widget = {
@@ -19,9 +21,10 @@ local dashboard_popup = wibox({
 			},
 			{
 				{
-					widget = wibox.container.background,
-					bg = beautiful.bg_light,
-					shape = util.rrect(beautiful.global_radius),
+					powermenu,
+					date,
+					spacing = dpi(12),
+					layout = wibox.layout.flex.horizontal,
 				},
 				widget = wibox.container.margin,
 				margins = dpi(6),
