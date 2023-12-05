@@ -3,6 +3,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local util = require("util")
+local gear = require("gears")
 
 naughty.config.defaults["icon_size"] = dpi(92)
 
@@ -19,11 +20,19 @@ local function get_notif_image(n)
 		})
 	end
 
-	return {
-		widget = wibox.widget.textbox,
-		font = "38",
-		markup = "<span foreground='" .. beautiful.bg_urgent .. "'></span>",
-	}
+	return wibox.widget({
+		{
+			{
+				widget = wibox.widget.imagebox,
+				image = gear.filesystem.get_configuration_dir() .. "theme/icons/bell.svg",
+				stylesheet = "* { fill: " .. beautiful.bg_focus .. "}",
+				forced_width = dpi(80),
+			},
+			widget = wibox.container.margin,
+			margins = dpi(2),
+		},
+		widget = wibox.container.place,
+	})
 end
 
 naughty.connect_signal("request::display", function(n)
@@ -57,7 +66,7 @@ naughty.connect_signal("request::display", function(n)
 									{
 										widget = wibox.widget.textbox,
 										markup = "<span weight='bold'>" .. util.ellipsize(n.title, 25) .. "</span>",
-										font = "Inter SemiBold 18",
+										font = "Inter SemiBold 24",
 										align = "left",
 									},
 									margins = { top = dpi(5) },
@@ -70,11 +79,12 @@ naughty.connect_signal("request::display", function(n)
 										.. "dd'>"
 										.. n.message
 										.. "</span>",
-									font = "Inter SemiBold 16",
+									font = "Inter SemiBold 20",
 									align = "left",
+									opacity = 0.7,
 								},
-								spacing = 8,
-								layout = wibox.layout.fixed.vertical,
+								spacing = 4,
+								layout = wibox.layout.flex.vertical,
 							},
 
 							widget = wibox.container.place,
@@ -82,7 +92,7 @@ naughty.connect_signal("request::display", function(n)
 							halign = "left",
 						},
 						widget = wibox.container.margin,
-						margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
+						margins = { top = dpi(6), left = dpi(8), right = dpi(8) },
 					},
 					{
 						{
@@ -90,27 +100,18 @@ naughty.connect_signal("request::display", function(n)
 								{
 									{
 										{
-											{
-												{
-													id = "text_role",
-													font = "Inter SemiBold 14",
-													widget = wibox.widget.textbox,
-												},
-												left = dpi(6),
-												right = dpi(6),
-												widget = wibox.container.margin,
-											},
-											widget = wibox.container.place,
+											id = "text_role",
+											font = "Inter SemiBold 8",
+											widget = wibox.widget.textbox,
 										},
 										widget = wibox.container.margin,
-										margins = { bottom = dpi(6), top = dpi(6), right = dpi(6), left = dpi(6) },
+										margins = 8,
 									},
-									bg = beautiful.notification_image_bg,
-									widget = wibox.container.background,
-									shape = util.rrect(beautiful.global_radius),
+									widget = wibox.container.place,
 								},
-								widget = wibox.container.margin,
-								margins = { bottom = dpi(6), right = dpi(6), top = dpi(3) },
+								bg = beautiful.notification_image_bg,
+								widget = wibox.container.background,
+								shape = util.rrect(beautiful.global_radius),
 							},
 							style = {
 								underline_normal = false,
