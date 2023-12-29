@@ -19,7 +19,7 @@ return function()
 					forced_width = dpi(28),
 				},
 				widget = wibox.container.margin,
-				margins = { left = dpi(16), right = dpi(16), top = dpi(6), bottom = dpi(6) },
+				margins = { left = dpi(12), right = dpi(12), top = dpi(6), bottom = dpi(6) },
 			},
 			widget = wibox.container.place,
 			valign = "center",

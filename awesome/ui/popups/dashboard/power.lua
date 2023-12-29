@@ -9,6 +9,7 @@ local run_command_on_click = function(widget, command)
 	widget:buttons(gears.table.join(
 		widget:buttons(),
 		awful.button({}, 1, nil, function()
+			awesome.emit_signal("signal::dashboard")
 			awful.spawn.with_shell(command)
 		end)
 	))

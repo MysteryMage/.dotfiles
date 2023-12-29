@@ -12,15 +12,6 @@ local dashboard_popup = wibox({
 		{
 			{
 				{
-					widget = wibox.container.background,
-					bg = beautiful.bg_light,
-					shape = util.rrect(beautiful.global_radius),
-				},
-				widget = wibox.container.margin,
-				margins = dpi(6),
-			},
-			{
-				{
 					powermenu,
 					date,
 					spacing = dpi(12),
@@ -35,7 +26,7 @@ local dashboard_popup = wibox({
 		widget = wibox.container.margin,
 		margins = dpi(6),
 	},
-	height = (awful.screen.focused().geometry.height - beautiful.bar_height - beautiful.useless_gap * 2) * 0.75,
+	height = (awful.screen.focused().geometry.height - beautiful.bar_height - beautiful.useless_gap * 2) * 0.50,
 	width = awful.screen.focused().geometry.width * 0.3,
 	border_color = beautiful.popup_border,
 	border_width = 2,

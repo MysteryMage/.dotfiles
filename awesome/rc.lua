@@ -43,8 +43,9 @@ awful.rules.rules = main.rules.get(binding.clientkeys, binding.clientbuttons)
 require("main.signals")
 require("ui.bar")
 
-awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "scripts/autostart.sh")
-
 require("main.modules")
 require("ui.notification")
 require("ui.popups")
+
+awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "scripts/autostart.sh")
+

@@ -99,7 +99,6 @@ return {
     },
 
     colors = require('colors.tavern'),
-    -- color_scheme = 'GruvboxDarkHard',
 
     leader = { key = 'z', mods = 'CTRL', timeout_milliseconds = 1000 },
     keys = set_keys(),
