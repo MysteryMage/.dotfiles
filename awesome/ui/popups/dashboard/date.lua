@@ -16,7 +16,7 @@ local date = wibox.widget({
 						valign = "bottom",
 					},
 					widget = wibox.container.margin,
-					margins = { bottom = -25 },
+					margins = { bottom = dpi(-25) },
 				},
 				{
 					{
