@@ -5,7 +5,6 @@ local awful = require("awful")
 require("awful.autofocus")
 
 local beautiful = require("beautiful")
-local dpi = beautiful.xresources.apply_dpi
 
 RC = {}
 RC.vars = require("main.variables")

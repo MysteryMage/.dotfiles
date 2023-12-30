@@ -36,13 +36,13 @@ local dashboard_popup = wibox({
 	visible = false,
 })
 
-awful.placement.top_left(dashboard_popup, {
-	offset = {
-		x = beautiful.useless_gap,
-		y = beautiful.bar_height + beautiful.useless_gap,
-	},
-})
-
 awesome.connect_signal("signal::dashboard", function()
+	awful.placement.top_left(dashboard_popup, {
+		offset = {
+			x = beautiful.useless_gap,
+			y = beautiful.bar_height + beautiful.useless_gap,
+		},
+	})
+
 	dashboard_popup.visible = not dashboard_popup.visible
 end)

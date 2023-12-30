@@ -69,13 +69,6 @@ local volume_popup = wibox({
 	visible = false,
 })
 
-awful.placement.top_right(volume_popup, {
-	offset = {
-		x = -beautiful.useless_gap,
-		y = beautiful.bar_height + beautiful.useless_gap,
-	},
-})
-
 local volume_disappear_timer = gears.timer({
 	timeout = 1,
 	callback = function()
@@ -84,6 +77,13 @@ local volume_disappear_timer = gears.timer({
 })
 
 awesome.connect_signal("signal::volume", function(value)
+	awful.placement.top_right(volume_popup, {
+		offset = {
+			x = -beautiful.useless_gap,
+			y = beautiful.bar_height + beautiful.useless_gap,
+		},
+	})
+
 	volume_popup.visible = true
 	volume_progress_bar.value = value / 100
 	volume_precentage.markup = "<span foreground='" .. beautiful.fg_focus .. "'><b>" .. value .. "%</b></span>"

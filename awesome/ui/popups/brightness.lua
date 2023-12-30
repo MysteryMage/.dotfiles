@@ -69,13 +69,6 @@ local brightness_popup = wibox({
 	visible = false,
 })
 
-awful.placement.top_right(brightness_popup, {
-	offset = {
-		x = -beautiful.useless_gap,
-		y = beautiful.bar_height + beautiful.useless_gap,
-	},
-})
-
 local brightness_disappear_timer = gears.timer({
 	timeout = 1,
 	callback = function()
@@ -84,6 +77,13 @@ local brightness_disappear_timer = gears.timer({
 })
 
 awesome.connect_signal("signal::brightness", function(value)
+	awful.placement.top_right(brightness_popup, {
+		offset = {
+			x = -beautiful.useless_gap,
+			y = beautiful.bar_height + beautiful.useless_gap,
+		},
+	})
+
 	brightness_popup.visible = true
 	brightness_progress_bar.value = value / 100
 	brightness_precentage.markup = "<span foreground='" .. beautiful.fg_focus .. "'><b>" .. value .. "%</b></span>"
