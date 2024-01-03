@@ -66,7 +66,7 @@ naughty.connect_signal("request::display", function(n)
 									{
 										widget = wibox.widget.textbox,
 										markup = "<span weight='bold'>" .. util.ellipsize(n.title, 25) .. "</span>",
-										font = "Inter SemiBold 24",
+										font = "Recursive Sans SemiBold 20",
 										align = "left",
 									},
 									margins = { top = dpi(5) },
@@ -79,12 +79,12 @@ naughty.connect_signal("request::display", function(n)
 										.. "dd'>"
 										.. n.message
 										.. "</span>",
-									font = "Inter SemiBold 20",
+									font = "Recursive Sans SemiBold 18",
 									align = "left",
 									opacity = 0.7,
 								},
-								spacing = 4,
-								layout = wibox.layout.flex.vertical,
+								spacing = 2,
+								layout = wibox.layout.fixed.vertical,
 							},
 
 							widget = wibox.container.place,
@@ -101,7 +101,7 @@ naughty.connect_signal("request::display", function(n)
 									{
 										{
 											id = "text_role",
-											font = "Inter SemiBold 8",
+											font = "Recursive Sans SemiBold 8",
 											widget = wibox.widget.textbox,
 										},
 										widget = wibox.container.margin,

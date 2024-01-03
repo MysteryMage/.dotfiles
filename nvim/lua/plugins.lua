@@ -72,6 +72,7 @@ lazy.setup({
     },
     'stevearc/oil.nvim',
     'nmac427/guess-indent.nvim',
+    'j-hui/fidget.nvim',
 
     'preservim/vim-markdown',
 

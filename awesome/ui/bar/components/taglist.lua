@@ -35,39 +35,27 @@ return function(s)
 	local taglist = awful.widget.taglist({
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
-		style = {
-			shape_empty = util.rrect(beautiful.global_radius),
-			shape_focus = util.rrect(beautiful.global_radius),
-			shape = util.rrect(beautiful.global_radius),
-		},
 		buttons = taglist_buttons,
 		layout = {
 			spacing = dpi(8),
 			layout = wibox.layout.fixed.horizontal,
 		},
 		widget_template = {
-			id = "background_role",
-			widget = wibox.container.background,
-			{
-				{
-					text = "",
-					widget = wibox.widget.textbox,
-				},
-				widget = wibox.container.margin,
-				margins = { bottom = dpi(6), top = dpi(6), left = dpi(16), right = dpi(16) },
-				forced_height = dpi(16),
-			},
+			id = "candle",
+			text = "",
+			widget = wibox.widget.textbox,
+			forced_width = dpi(30),
 			create_callback = function(self, tag)
-				local bar = self:get_children_by_id("background_role")[1]
+				local bar = self:get_children_by_id("candle")[1]
+
 				self.update = function()
 					if tag.selected then
-						bar.forced_width = dpi(54)
-					elseif #tag:clients() > 0 then
-						bar.forced_width = dpi(44)
+						bar.text = ""
 					else
-						bar.forced_width = dpi(24)
+						bar.text = ""
 					end
 				end
+
 				self.update()
 			end,
 

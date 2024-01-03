@@ -20,7 +20,8 @@ if [ -f /usr/share/git/git-prompt.sh ]; then
 fi
 
 setopt PROMPT_SUBST
-PS1='%B%F{88}%n%F{white}@%F{94}$(hostname | cut -f1 -d".") %F{white}%1~ $(__git_ps1 "(%s) ")$ %b'
+# PS1='%B%F{88}%n%F{white}@%F{94}$(hostname | cut -f1 -d".") %F{white}%1~ $(__git_ps1 "(%s) ")$ %b'
+PS1='> %F{white}%1~ $(__git_ps1 "(%s) ")$ %b'
 
 stty erase '^?'
 bindkey -e

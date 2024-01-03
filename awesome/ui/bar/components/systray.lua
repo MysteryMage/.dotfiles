@@ -31,7 +31,7 @@ return function()
 				},
 			},
 		},
-		offset = { y = dpi(5), x = dpi(15) },
+		offset = { y = beautiful.bar_height, x = -dpi(210) },
 	})
 
 	systray_button:buttons(gears.table.join(

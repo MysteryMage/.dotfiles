@@ -6,7 +6,11 @@ local util = require("util")
 return function()
 	local clock = wibox.widget({
 		{
-			wibox.widget.textclock("%H:%M"),
+			{
+				format = "%H:%M",
+				font = "Recursive Mono SemiBold 18",
+				widget = wibox.widget.textclock,
+			},
 			widget = wibox.container.margin,
 			margins = { top = dpi(6), left = dpi(12), right = dpi(12), bottom = dpi(6) },
 		},

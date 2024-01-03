@@ -11,9 +11,9 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.bar_height = dpi(55)
+theme.bar_height = dpi(65)
 
-theme.font = "Inter SemiBold 14"
+theme.font = "Recursive Sans SemiBold 18"
 
 theme.bg_normal = "#1b1413"
 theme.bg_focus = "#D8814B"
@@ -28,9 +28,9 @@ theme.fg_urgent = "#ece5e4"
 theme.fg_minimize = "#ece5e4"
 
 theme.useless_gap = dpi(8)
-theme.border_width = dpi(0)
+theme.border_width = dpi(2)
 theme.border_normal = "#1b1413"
-theme.border_focus = "#B3A532"
+theme.border_focus = "#41302e"
 theme.border_marked = "#BB3075"
 
 -- There are other variable sets
@@ -46,9 +46,13 @@ theme.border_marked = "#BB3075"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-theme.taglist_bg_focus = "#D8814B"
-theme.taglist_bg_occupied = "#6f524f"
-theme.taglist_bg_empty = "#58413f"
+-- theme.taglist_bg_focus = "#D8814B"
+-- theme.taglist_bg_occupied = "#6f524f"
+-- theme.taglist_bg_empty = "#58413f"
+
+theme.taglist_bg_focus = "#41302e"
+theme.taglist_bg_occupied = "#41302e"
+theme.taglist_bg_empty = "#41302e"
 
 theme.battery_charge = "#BB3075"
 theme.battery_ok = "#AEB848"

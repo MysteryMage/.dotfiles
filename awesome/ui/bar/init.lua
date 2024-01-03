@@ -2,6 +2,7 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local util = require("util")
 local dpi = beautiful.xresources.apply_dpi
 
 local logo = require("ui.bar.components.logo")
@@ -30,9 +31,14 @@ awful.screen.connect_for_each_screen(function(s)
 
 	s.mywibox = awful.wibar({
 		position = "top",
-		margins = { top = dpi(0), left = dpi(0), right = dpi(0), bottom = dpi(0) },
+		margins = { top = dpi(0), left = dpi(150), right = dpi(150), bottom = dpi(0) },
 		screen = s,
 		height = beautiful.bar_height,
+		border_color = beautiful.popup_border,
+		shape = function(cr, width, height)
+			gears.shape.partially_rounded_rect(cr, width, height, false, false, true, true, beautiful.global_radius)
+		end,
+		border_width = 2,
 	})
 
 	s.mywibox:setup({
@@ -41,7 +47,7 @@ awful.screen.connect_for_each_screen(function(s)
 			margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
 			{
 				{
-					logo(),
+					-- logo(),
 					taglist(s),
 					spacing = dpi(8),
 					layout = wibox.layout.fixed.horizontal,

@@ -39,7 +39,7 @@ local dashboard_popup = wibox({
 awesome.connect_signal("signal::dashboard", function()
 	awful.placement.top_left(dashboard_popup, {
 		offset = {
-			x = beautiful.useless_gap,
+			x = beautiful.useless_gap + dpi(150),
 			y = beautiful.bar_height + beautiful.useless_gap,
 		},
 	})

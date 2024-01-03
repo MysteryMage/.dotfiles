@@ -13,14 +13,14 @@ local album_art = wibox.widget({
 })
 
 local song_name = wibox.widget({
-	font = "Inter SemiBold 30",
+	font = "Recursive Sans SemiBold 30",
 	halign = "center",
 	text = "Nothing's Playing...",
 	widget = wibox.widget.textbox,
 })
 
 local artist_name = wibox.widget({
-	font = "Inter SemiBold 20",
+	font = "Recursive Sans SemiBold 20",
 	halign = "center",
 	text = "Some peace and quiet",
 	widget = wibox.widget.textbox,

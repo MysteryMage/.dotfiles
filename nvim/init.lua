@@ -21,5 +21,6 @@ require('plugins_config.noice')
 require('plugins_config.notify')
 require('plugins_config.dap')
 require('plugins_config.guess_indent')
+require('plugins_config.fidget')
 
 require('colors')
