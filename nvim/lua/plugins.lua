@@ -34,11 +34,10 @@ lazy.setup({
     {
         dir = '~/dev/Plugins.nvim/tavern.nvim',
     },
-    'luisiacc/gruvbox-baby',
 
     'kyazdani42/nvim-web-devicons',
     'stevearc/dressing.nvim',
-    'feline-nvim/feline.nvim',
+    'rebelot/heirline.nvim',
 
     'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
