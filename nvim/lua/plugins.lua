@@ -48,12 +48,6 @@ lazy.setup({
     'numToStr/Comment.nvim',
     'norcalli/nvim-colorizer.lua',
     {
-        'windwp/nvim-autopairs',
-        config = function()
-            require('nvim-autopairs').setup({})
-        end,
-    },
-    {
         'folke/todo-comments.nvim',
         dependencies = 'nvim-lua/plenary.nvim',
         config = function()

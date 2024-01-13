@@ -130,7 +130,8 @@ local ruler = {
 }
 
 mode = utils.surround({ ' ', ' ' }, 'bg_light', mode)
-mode = utils.surround({ '', '' }, 'bg_light', mode)
+mode = utils.surround({ ' ', ' ' }, 'bg_light', mode)
+-- mode = utils.surround({ '', '' }, 'bg_light', mode)
 
 local align = { provider = '%=' }
 local space = { provider = ' ' }

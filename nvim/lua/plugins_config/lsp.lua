@@ -26,6 +26,7 @@ lspconfig.vimls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.rust_analyzer.setup({})
 lspconfig.zls.setup({})
+lspconfig.svelte.setup({})
 
 lspconfig.lua_ls.setup({
     settings = {
