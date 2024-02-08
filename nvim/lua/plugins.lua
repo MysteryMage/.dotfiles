@@ -55,14 +55,6 @@ lazy.setup({
         end,
     },
 
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        }
-    },
     'stevearc/oil.nvim',
     'nmac427/guess-indent.nvim',
     'j-hui/fidget.nvim',
