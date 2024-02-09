@@ -59,4 +59,8 @@ M.change_cursor_on_hover = function(widget, cursor)
 	end)
 end
 
+M.get_colored_text = function(text, color)
+	return "<span foreground='" .. color .. "'>" .. text .. "</span>"
+end
+
 return M

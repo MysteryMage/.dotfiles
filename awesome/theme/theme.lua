@@ -16,11 +16,11 @@ theme.bar_height = dpi(65)
 theme.font = "Recursive Sans SemiBold 18"
 
 theme.bg_normal = "#1b1413"
-theme.bg_focus = "#D8814B"
-theme.bg_urgent = "#C79C0B"
-theme.bg_minimize = "#A37B41"
+theme.bg_focus = "#e56357"
+theme.bg_urgent = "#e5e557"
+theme.bg_minimize = "#b7774e"
 theme.bg_systray = theme.bg_normal
-theme.bg_light = "#41302e"
+theme.bg_light = "#322523"
 
 theme.fg_normal = "#cbb8b7"
 theme.fg_focus = "#ece5e4"
@@ -30,8 +30,8 @@ theme.fg_minimize = "#ece5e4"
 theme.useless_gap = dpi(8)
 theme.border_width = dpi(2)
 theme.border_normal = "#1b1413"
-theme.border_focus = "#41302e"
-theme.border_marked = "#BB3075"
+theme.border_focus = "#322523"
+theme.border_marked = "#e5507f"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -50,22 +50,23 @@ theme.border_marked = "#BB3075"
 -- theme.taglist_bg_occupied = "#6f524f"
 -- theme.taglist_bg_empty = "#58413f"
 
-theme.taglist_bg_focus = "#41302e"
-theme.taglist_bg_occupied = "#41302e"
-theme.taglist_bg_empty = "#41302e"
+theme.taglist_bg_focus = "#322523"
+theme.taglist_bg_occupied = "#322523"
+theme.taglist_bg_empty = "#322523"
+theme.taglist_fg_focus = "#e56357"
 
-theme.battery_charge = "#BB3075"
-theme.battery_ok = "#AEB848"
-theme.battery_low = "#C79C0B"
-theme.battery_extreme_low = "#D0472F"
+theme.battery_charge = "#e5507f"
+theme.battery_ok = "#61cc7c"
+theme.battery_low = "#e5e557"
+theme.battery_extreme_low = "#b24345"
 
 theme.popup_bg = "#1b1413"
-theme.popup_border = "#41302e"
-theme.volume_progress_color = "#D8814B"
-theme.volume_progress_bg = "#41302e"
+theme.popup_border = "#322523"
+theme.volume_progress_color = "#e56357"
+theme.volume_progress_bg = "#322523"
 
-theme.brightness_progress_color = "#D8814B"
-theme.brightness_progress_bg = "#41302e"
+theme.brightness_progress_color = "#e56357"
+theme.brightness_progress_bg = "#322523"
 
 theme.power = "#CBB8B7"
 theme.reboot = "#CBB8B7AA"
@@ -79,14 +80,14 @@ theme.lock = "#CBB8B7"
 -- notification_[border_color|border_width|shape|opacity]
 
 theme.notification_font = "MapleMono 16"
-theme.notification_bg = "#41302e"
+theme.notification_bg = "#322523"
 theme.notification_image_bg = "#1b1413"
 theme.notification_fg = "#cbb8b7"
-theme.notification_border_color = "#41302e"
+theme.notification_border_color = "#322523"
 theme.notification_border_width = dpi(2)
 theme.notification_margin = dpi(8)
 
-theme.bar_lighter_bg = "#41302e"
+theme.bar_lighter_bg = "#322523"
 
 theme.global_radius = dpi(8)
 

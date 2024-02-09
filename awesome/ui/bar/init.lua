@@ -38,13 +38,13 @@ awful.screen.connect_for_each_screen(function(s)
 		shape = function(cr, width, height)
 			gears.shape.partially_rounded_rect(cr, width, height, false, false, true, true, beautiful.global_radius)
 		end,
-		border_width = 2,
+		border_width = 0,
 	})
 
 	s.mywibox:setup({
 		{
 			widget = wibox.container.margin,
-			margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
+			margins = { top = dpi(6), bottom = dpi(6), left = dpi(16), right = dpi(16) },
 			{
 				{
 					-- logo(),

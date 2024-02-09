@@ -41,18 +41,25 @@ return function(s)
 			layout = wibox.layout.fixed.horizontal,
 		},
 		widget_template = {
-			id = "candle",
+			id = "taglist",
 			text = "",
 			widget = wibox.widget.textbox,
 			forced_width = dpi(30),
 			create_callback = function(self, tag)
-				local bar = self:get_children_by_id("candle")[1]
+				local bar = self:get_children_by_id("taglist")[1]
 
 				self.update = function()
 					if tag.selected then
-						bar.text = ""
+						bar.markup = util.get_colored_text("", beautiful.taglist_fg_focus)
+						bar.opacity = 1.0
 					else
-						bar.text = ""
+						bar.markup = ""
+
+						if #tag:clients() > 0 then
+							bar.opacity = 1.0
+						else
+							bar.opacity = 0.5
+						end
 					end
 				end
 
