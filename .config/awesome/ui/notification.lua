@@ -23,15 +23,25 @@ local function get_notif_image(n)
 	return wibox.widget({
 		{
 			{
-				widget = wibox.widget.imagebox,
-				image = gear.filesystem.get_configuration_dir() .. "theme/icons/bell.svg",
-				stylesheet = "* { fill: " .. beautiful.bg_focus .. "}",
-				forced_width = dpi(80),
+				{
+					{
+						widget = wibox.widget.imagebox,
+						image = gear.filesystem.get_configuration_dir() .. "theme/icons/bell.svg",
+						stylesheet = "* { fill: " .. beautiful.bg_focus .. "}",
+						forced_width = dpi(80),
+					},
+					widget = wibox.container.margin,
+					margins = dpi(2),
+				},
+				widget = wibox.container.place,
 			},
-			widget = wibox.container.margin,
-			margins = dpi(2),
+			widget = wibox.container.place,
+			valign = "center",
 		},
-		widget = wibox.container.place,
+		widget = wibox.container.background,
+		bg = beautiful.notification_image_bg,
+		shape = util.rrect(beautiful.global_radius),
+		forced_width = dpi(140),
 	})
 end
 
@@ -39,24 +49,18 @@ naughty.connect_signal("request::display", function(n)
 	naughty.layout.box({
 		notification = n,
 		shape = util.rrect(beautiful.global_radius),
-		minimum_width = dpi(650),
-		maximum_width = dpi(650),
-		minimum_height = dpi(120),
-		maximum_height = dpi(120),
+		minimum_width = dpi(560),
+		maximum_width = dpi(560),
+		minimum_height = dpi(140),
+		maximum_height = dpi(140),
 		widget_template = {
 			{
 				spacing = 10,
 				layout = wibox.layout.fixed.horizontal,
 				{
-					widget = wibox.container.background,
-					bg = beautiful.notification_image_bg,
-					shape = util.rrect(beautiful.global_radius),
-					forced_width = dpi(170),
-					{
-						get_notif_image(n),
-						widget = wibox.container.place,
-						valign = "center",
-					},
+					get_notif_image(n),
+					margins = { top = dpi(10), left = dpi(10), bottom = dpi(10) },
+					widget = wibox.container.margin,
 				},
 				{
 					{

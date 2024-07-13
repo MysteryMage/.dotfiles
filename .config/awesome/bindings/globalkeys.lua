@@ -1,7 +1,8 @@
 local awful = require("awful")
 local gears = require("gears")
-local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+local playerctl = require("libs.bling").signal.playerctl.lib()
 
 return gears.table.join(
 	awful.key({ RC.vars.modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
@@ -161,5 +162,16 @@ return gears.table.join(
 	end, { description = "Decrease brightness", group = "brightness" }),
 	awful.key({ RC.vars.modkey }, "d", function()
 		awesome.emit_signal("signal::dashboard")
-	end, { description = "Toggle dashboard", group = "ui" })
+	end, { description = "Toggle dashboard", group = "ui" }),
+
+	-- Media
+	awful.key({}, "XF86AudioPrev", function()
+		playerctl:previous()
+	end, { description = "Go to previous track", group = "media" }),
+	awful.key({}, "XF86AudioNext", function()
+		playerctl:next()
+	end, { description = "Go to next track", group = "media" }),
+	awful.key({}, "XF86AudioPlay", function()
+		playerctl:play_pause()
+	end, { description = "Play or pause current track", group = "media" })
 )

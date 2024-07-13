@@ -8,7 +8,8 @@ local dpi = beautiful.xresources.apply_dpi
 local logo = require("ui.bar.components.logo")
 local clock = require("ui.bar.components.clock")
 local language = require("ui.bar.components.language")
-local taglist = require("ui.bar.components.taglist")
+local taglist = require("ui.bar.components.taglist-number")
+local tasklist = require("ui.bar.components.tasklist")
 local systray = require("ui.bar.components.systray")
 local battery = require("ui.bar.components.battery")
 
@@ -31,36 +32,34 @@ awful.screen.connect_for_each_screen(function(s)
 
 	s.mywibox = awful.wibar({
 		position = "top",
-		margins = { top = dpi(0), left = dpi(150), right = dpi(150), bottom = dpi(0) },
 		screen = s,
 		height = beautiful.bar_height,
 		border_color = beautiful.popup_border,
 		shape = function(cr, width, height)
-			gears.shape.partially_rounded_rect(cr, width, height, false, false, true, true, beautiful.global_radius)
+			gears.shape.partially_rounded_rect(cr, width, height, false, false, false, false, beautiful.global_radius)
 		end,
-		border_width = 0,
 	})
 
 	s.mywibox:setup({
 		{
-			widget = wibox.container.margin,
-			margins = { top = dpi(6), bottom = dpi(6), left = dpi(16), right = dpi(16) },
 			{
+				taglist(s),
 				{
-					-- logo(),
-					taglist(s),
-					spacing = dpi(8),
-					layout = wibox.layout.fixed.horizontal,
+					{
+						wibox.widget.textbox(" "),
+						widget = wibox.container.background,
+						shape = util.rrect(beautiful.global_radius),
+						bg = beautiful.bg_light,
+					},
+					widget = wibox.container.margin,
+					margins = { top = dpi(10), bottom = dpi(10) },
 				},
-				widget = wibox.container.place,
-				halign = "left",
+				tasklist(s),
+
+				spacing = dpi(12),
+				layout = wibox.layout.fixed.horizontal,
 			},
-		},
-		-- {
-		-- 	widget = wibox.container.place,
-		-- 	halign = "center",
-		-- },
-		{
+			nil,
 			{
 				{
 					{
@@ -74,15 +73,15 @@ awful.screen.connect_for_each_screen(function(s)
 					battery,
 					language(),
 					clock(),
-					spacing = dpi(8),
+					spacing = dpi(12),
 					layout = wibox.layout.fixed.horizontal,
 				},
 				widget = wibox.container.place,
 				halign = "right",
 			},
-			widget = wibox.container.margin,
-			margins = { top = dpi(6), bottom = dpi(6), left = dpi(8), right = dpi(8) },
+			layout = wibox.layout.align.horizontal,
 		},
-		layout = wibox.layout.flex.horizontal,
+		widget = wibox.container.margin,
+		margins = dpi(8),
 	})
 end)

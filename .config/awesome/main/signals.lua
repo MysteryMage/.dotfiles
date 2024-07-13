@@ -1,5 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
+local gears = require("gears")
 
 require("ui.titlebar")
 
@@ -12,6 +13,17 @@ end)
 client.connect_signal("focus", function(c)
 	c.border_color = beautiful.border_focus
 end)
+
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
+end)
+
+client.connect_signal("property::fullscreen", function(c)
+	if c.fullscreen then
+		gears.timer.delayed_call(function()
+			if c.valid then
+				c:geometry(c.screen.geometry)
+			end
+		end)
+	end
 end)

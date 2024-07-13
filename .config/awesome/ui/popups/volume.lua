@@ -79,7 +79,7 @@ local volume_disappear_timer = gears.timer({
 awesome.connect_signal("signal::volume", function(value)
 	awful.placement.top_right(volume_popup, {
 		offset = {
-			x = -dpi(150),
+			x = -beautiful.useless_gap,
 			y = beautiful.bar_height + beautiful.useless_gap,
 		},
 	})

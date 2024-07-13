@@ -12,7 +12,7 @@ local date = wibox.widget({
 
 						markup = os.date("%d"),
 						widget = wibox.widget.textbox,
-						font = "Recursive Sans SemiBold SemiBold 86",
+						font = "Recursive Sans SemiBold 86",
 						valign = "bottom",
 					},
 					widget = wibox.container.margin,
@@ -39,6 +39,7 @@ local date = wibox.widget({
 				markup = "<span foreground='" .. beautiful.fg_normal .. "AA" .. "'>" .. os.date("%B") .. "</span>",
 				widget = wibox.widget.textbox,
 				font = "Recursive Sans SemiBold 24",
+				halign = "center",
 			},
 			layout = wibox.layout.fixed.vertical,
 		},

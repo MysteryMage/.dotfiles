@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.bar_height = dpi(65)
+theme.bar_height = dpi(60)
 
 theme.font = "Recursive Sans SemiBold 18"
 
@@ -28,10 +28,17 @@ theme.fg_urgent = "#ece5e4"
 theme.fg_minimize = "#ece5e4"
 
 theme.useless_gap = dpi(8)
-theme.border_width = dpi(2)
+theme.border_width = dpi(6)
 theme.border_normal = "#1b1413"
-theme.border_focus = "#322523"
+theme.border_focus = "#1b1413"
 theme.border_marked = "#e5507f"
+
+-- theme.titlebar_bg_normal = "#231918"
+-- theme.titlebar_bg_focus = "#231918"
+theme.titlebar_bg_normal = "#1b1413"
+theme.titlebar_bg_focus = "#1b1413"
+theme.titlebar_fg_normal = "#cbb8b7"
+theme.titlebar_fg_focus = "#dccfcd"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -53,7 +60,7 @@ theme.border_marked = "#e5507f"
 theme.taglist_bg_focus = "#322523"
 theme.taglist_bg_occupied = "#322523"
 theme.taglist_bg_empty = "#322523"
-theme.taglist_fg_focus = "#e56357"
+theme.taglist_fg_focus = "#cbb8b7"
 
 theme.battery_charge = "#e5507f"
 theme.battery_ok = "#61cc7c"
@@ -79,7 +86,7 @@ theme.lock = "#CBB8B7"
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
-theme.notification_font = "MapleMono 16"
+theme.notification_font = "Recursive Sans SemiBold 16"
 theme.notification_bg = "#322523"
 theme.notification_image_bg = "#1b1413"
 theme.notification_fg = "#cbb8b7"
@@ -89,7 +96,7 @@ theme.notification_margin = dpi(8)
 
 theme.bar_lighter_bg = "#322523"
 
-theme.global_radius = dpi(8)
+theme.global_radius = dpi(6)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -130,7 +137,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titleba
 theme.titlebar_maximized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/wallpapers/tavern-leaves.png"
+theme.wallpaper = "~/wallpapers/tree-road.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"

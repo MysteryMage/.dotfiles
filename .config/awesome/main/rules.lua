@@ -55,9 +55,22 @@ M.get = function(clientkeys, clientbuttons)
 			properties = { floating = true },
 		},
 
+		-- {
+		-- 	rule = { instance = "steam" },
+		-- 	properties = { screen = 1, tag = "3" },
+		-- },
+		-- {
+		-- 	rule = { instance = "cider" },
+		-- 	properties = { screen = 2, tag = "1" },
+		-- },
+		-- {
+		-- 	rule = { instance = "Discord" },
+		-- 	properties = { screen = 2, tag = "1" },
+		-- },
+
 		{
 			rule_any = { type = { "normal", "dialog" } },
-			properties = { titlebars_enabled = false },
+			properties = { titlebars_enabled = true },
 		},
 	}
 end

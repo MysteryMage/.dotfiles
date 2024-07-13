@@ -1,29 +1,20 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local gears = require("gears")
 local beautiful = require("beautiful")
+local dpi = beautiful.xresources.apply_dpi
 
-function Set_wallpaper(s)
-	-- Wallpaper
+screen.connect_signal("request::wallpaper", function(s)
 	if beautiful.wallpaper then
-		local wallpaper = beautiful.wallpaper
-		-- If wallpaper is a function, call it with the screen
-		if type(wallpaper) == "function" then
-			wallpaper = wallpaper(s)
-		end
-
 		awful.wallpaper({
 			screen = s,
-			bg = "#000000",
 			widget = {
-				horizontal_fit_policy = "fill",
-				vertical_fit_policy = "fill",
-				upsacle = true,
-				downscale = true,
-				image = beautiful.wallpaper,
+				image = gears.surface.crop_surface({
+					surface = gears.surface.load_uncached(beautiful.wallpaper),
+					ratio = s.geometry.width / s.geometry.height,
+				}),
 				widget = wibox.widget.imagebox,
 			},
 		})
 	end
-end
-
--- screen.connect_signal("property::geometry", Set_wallpaper)
+end)
