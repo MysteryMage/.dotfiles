@@ -45,8 +45,17 @@ lazy.setup({
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
 
-    'numToStr/Comment.nvim',
-    'norcalli/nvim-colorizer.lua',
+    {
+        'brenoprata10/nvim-highlight-colors',
+        config = function()
+            require('nvim-highlight-colors').setup({
+                render = 'virtual',
+                virtual_symbol = '■',
+                enable_named_colors = true,
+                enable_tailwind = true,
+            })
+        end,
+    },
     {
         'folke/todo-comments.nvim',
         dependencies = 'nvim-lua/plenary.nvim',
@@ -92,8 +101,8 @@ lazy.setup({
 
     'nvim-telescope/telescope.nvim',
     {
-        "dzfrias/arena.nvim",
-        event = "BufWinEnter",
+        'dzfrias/arena.nvim',
+        event = 'BufWinEnter',
         config = true,
     },
 

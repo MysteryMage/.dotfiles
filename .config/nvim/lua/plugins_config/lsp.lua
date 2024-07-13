@@ -35,11 +35,17 @@ lspconfig.lua_ls.setup({
                 version = 'LuaJIT',
             },
             diagnostics = {
+                enable = true,
                 globals = { 'vim' },
             },
             workspace = {
-                library = { vim.api.nvim_get_runtime_file('', true), ['/usr/share/awesome/lib'] = true },
-                checkThirdParty = false,
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                    ['/usr/share/awesome/lib'] = true,
+                },
+                maxPreload = 2000,
+                preloadFileSize = 1000,
             },
             telemetry = {
                 enable = false,

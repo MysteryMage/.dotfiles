@@ -10,8 +10,6 @@ null_ls.setup({
     border = 'rounded',
     sources = {
         formatting.stylua,
-
-        diagnostics.eslint_d,
         formatting.prettierd,
     },
 })
