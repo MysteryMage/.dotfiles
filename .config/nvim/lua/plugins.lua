@@ -68,7 +68,13 @@ lazy.setup({
     'nmac427/guess-indent.nvim',
     'j-hui/fidget.nvim',
 
-    'preservim/vim-markdown',
+    {
+        'MeanderingProgrammer/markdown.nvim',
+        main = 'render-markdown',
+        opts = {},
+        name = 'render-markdown',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    },
 
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',

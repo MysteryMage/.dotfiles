@@ -126,7 +126,7 @@ local file_flags = {
 filename_block = utils.insert(filename_block, filename, file_flags, { provider = '%<' })
 
 local ruler = {
-    provider = '%7(%l/%3L%):%2c %P',
+    provider = 'LN: %l COL: %c',
 }
 
 mode = utils.surround({ ' ', ' ' }, 'bg_light', mode)
