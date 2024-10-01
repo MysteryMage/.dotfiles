@@ -96,7 +96,7 @@ theme.notification_margin = dpi(8)
 
 theme.bar_lighter_bg = "#322523"
 
-theme.global_radius = dpi(6)
+theme.global_radius = dpi(4)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -137,7 +137,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titleba
 theme.titlebar_maximized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/wallpapers/tree-road.png"
+theme.wallpaper = "~/wallpapers/autumn-lantern.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"

@@ -1,5 +1,6 @@
 local fidget_ok, fidget = pcall(require, 'fidget')
 if not fidget_ok then
+    vim.api.nvim_err_writeln('[Plugin] Fidget doesn\'t exist')
     return
 end
 

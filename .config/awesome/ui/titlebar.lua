@@ -1,5 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
+local beautiful = require("beautiful")
 local wibox = require("wibox")
 local dpi = require("beautiful").xresources.apply_dpi
 local util = require("util")
@@ -84,14 +85,23 @@ client.connect_signal("request::titlebars", function(c)
 		},
 		{
 			{
-				minimize,
-				maximize,
-				close,
-				layout = wibox.layout.flex.horizontal,
-				spacing = dpi(8),
+				{
+					{
+						minimize,
+						maximize,
+						close,
+						layout = wibox.layout.flex.horizontal,
+						spacing = dpi(8),
+					},
+					widget = wibox.container.margin,
+					margins = { bottom = dpi(4) },
+				},
+				widget = wibox.container.margin,
+				color = beautiful.bg_light,
+				margins = { bottom = dpi(2) },
 			},
 			widget = wibox.container.margin,
-			margins = { right = dpi(6), bottom = dpi(4) },
+			margins = { right = dpi(6) },
 		},
 		layout = wibox.layout.align.horizontal,
 	})

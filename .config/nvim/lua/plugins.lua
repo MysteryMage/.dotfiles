@@ -28,7 +28,10 @@ lazy.setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
 
-    'nvimtools/none-ls.nvim',
+    {
+        'nvimtools/none-ls.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
 
     'habamax/vim-alchemist',
     {
@@ -36,11 +39,9 @@ lazy.setup({
     },
 
     'kyazdani42/nvim-web-devicons',
-    'stevearc/dressing.nvim',
     'rebelot/heirline.nvim',
 
     'lewis6991/gitsigns.nvim',
-    'tpope/vim-fugitive',
 
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
@@ -54,13 +55,6 @@ lazy.setup({
                 enable_named_colors = true,
                 enable_tailwind = true,
             })
-        end,
-    },
-    {
-        'folke/todo-comments.nvim',
-        dependencies = 'nvim-lua/plenary.nvim',
-        config = function()
-            require('todo-comments').setup({})
         end,
     },
 
@@ -104,15 +98,8 @@ lazy.setup({
         end,
     },
     'nvim-treesitter/nvim-treesitter-context',
-
-    'nvim-telescope/telescope.nvim',
     {
-        'dzfrias/arena.nvim',
-        event = 'BufWinEnter',
-        config = true,
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
-
-    'rust-lang/rust.vim',
-
-    'nvim-lua/plenary.nvim',
 }, lazy_opts)

@@ -1,5 +1,6 @@
 local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
 if not lspconfig_ok then
+    vim.api.nvim_err_writeln('[Plugin] Lspconfig doesn\'t exist')
     return
 end
 
@@ -13,7 +14,7 @@ lspconfig.cssls.setup({
     capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false

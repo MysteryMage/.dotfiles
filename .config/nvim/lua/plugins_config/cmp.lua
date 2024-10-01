@@ -1,14 +1,16 @@
 local cmp_ok, cmp = pcall(require, 'cmp')
 if not cmp_ok then
+    vim.api.nvim_err_writeln('[Plugin] Cmp doesn\'t exist')
     return
 end
 
 local lspkind_ok, lspkind = pcall(require, 'lspkind')
 if not lspkind_ok then
+    vim.api.nvim_err_writeln('[Plugin] Lspkind doesn\'t exist')
     return
 end
 
-cmp.setup {
+cmp.setup({
     snippet = {
         expand = function(args)
             local luasnip_ok, luasnip = pcall(require, 'luasnip')
@@ -16,11 +18,11 @@ cmp.setup {
                 return
             end
             luasnip.lsp_expand(args.body)
-        end
+        end,
     },
     mapping = {
-        ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-        ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -47,6 +49,6 @@ cmp.setup {
                 path = '[path]',
                 luasnip = '[snip]',
             },
-        })
-    }
-}
+        }),
+    },
+})

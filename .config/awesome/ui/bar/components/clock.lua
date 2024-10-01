@@ -4,7 +4,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 return function()
 	local clock = wibox.widget({
-		format = "%H:%M",
+		format = "%H:%M ",
 		font = "Recursive Mono SemiBold 18",
 		widget = wibox.widget.textclock,
 	})

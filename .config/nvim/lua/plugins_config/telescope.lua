@@ -1,5 +1,6 @@
 local telescope_ok, telescope = pcall(require, 'telescope')
 if not telescope_ok then
+    vim.api.nvim_err_writeln('[Plugin] Telescope doesn\'t exist')
     return
 end
 

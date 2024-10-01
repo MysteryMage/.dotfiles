@@ -1,5 +1,6 @@
 local context_ok, context = pcall(require, 'treesitter-context')
 if not context_ok then
+    vim.api.nvim_err_writeln('[Plugin] Treesitter-Context doesn\'t exist')
     return
 end
 
