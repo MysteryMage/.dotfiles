@@ -185,4 +185,11 @@ lazy.setup({
             require('plugins_config.telescope')
         end,
     },
+
+    {
+        'neogitorg/neogit',
+        dependencies = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' },
+
+        config = true,
+    },
 }, lazy_opts)
