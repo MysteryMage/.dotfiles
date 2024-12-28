@@ -3,23 +3,7 @@ vim.g.mapleader = ' '
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<leader>ng', ':Neogit<Cr>', opts)
-
 vim.keymap.set('n', '<leader>e', ':Oil<Cr>', opts)
-
-vim.keymap.set('n', '<leader>fc', function()
-    local telescope_ok, telescope = pcall(require, 'telescope.builtin')
-    if not telescope_ok then
-        return
-    end
-
-    telescope.find_files({
-        cwd = vim.fn.stdpath('config'),
-    })
-end, opts)
-vim.keymap.set('n', '<leader>ff', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<Cr>', opts)
-vim.keymap.set('n', '<leader>fg', ':Telescope git_files<Cr>', opts)
-vim.keymap.set('n', '<leader>fb', ':Telescope buffers<Cr>', opts)
-vim.keymap.set('n', '<leader>g', ':Telescope live_grep<Cr>', opts)
 
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<Cr>', opts)
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
