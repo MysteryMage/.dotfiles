@@ -10,18 +10,14 @@ function get_time_greeting() {
     fi
 }
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m'
-printf "$(get_time_greeting) ${RED}$(whoami)${NC}, a new ${GREEN}adventure${NC} awaits\n"
-
 if [ -f /usr/share/git/git-prompt.sh ]; then
     source /usr/share/git/git-prompt.sh
 fi
 
 setopt PROMPT_SUBST
-# PS1='%B%F{88}%n%F{white}@%F{94}$(hostname | cut -f1 -d".") %F{white}%1~ $(__git_ps1 "(%s) ")$ %b'
-PS1='> %F{white}%1~ $(__git_ps1 "(%s) ")$ %b'
+# PS1='%B%F{88}%f%n%F{white}@%f%F{94}$(hostname | cut -f1 -d".")%f %F{white}%1~ $(__git_ps1 "(%s) ")$ %f'
+# PS1='> %F{white}%1~ $(__git_ps1 "(%s) ")$ %f'
+PS1='@%F{94}$(hostname | cut -f1 -d".")%f %F{white}%1~ $(__git_ps1 "(%s) ")$ %f'
 
 stty erase '^?'
 bindkey -e
@@ -59,7 +55,7 @@ zstyle ':completion:*' menu select
 bindkey '^[[Z' reverse-menu-complete
 
 export EDITOR=nvim
-export MANPAGER=bat
+export MANPAGER='nvim +Man!'
 
 if [[ -f /usr/share/nvm/init-nvm.sh ]] then
     source /usr/share/nvm/init-nvm.sh
