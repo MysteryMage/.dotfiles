@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-            { out, 'WarningMsg' },
+            { out,                            'WarningMsg' },
             { '\nPress any key to exit...' },
         }, true, {})
         vim.fn.getchar()
@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_ok, lazy = pcall(require, 'lazy')
 if not lazy_ok then
-    vim.api.nvim_err_writeln('Failed to load lazy')
+    vim.api.nvim_echo({ { 'Failed to load lazy' } }, true, { err = true })
     return
 end
 

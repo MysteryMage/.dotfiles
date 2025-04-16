@@ -5,7 +5,7 @@ return {
         config = function()
             local heirline_ok, heirline = pcall(require, 'heirline')
             if not heirline_ok then
-                vim.api.nvim_err_writeln('[Plugin] Heirline doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Heirline doesn\'t exist' } }, true, { err = true })
                 return
             end
 

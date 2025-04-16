@@ -16,13 +16,13 @@ return {
         config = function()
             local cmp_ok, cmp = pcall(require, 'cmp')
             if not cmp_ok then
-                vim.api.nvim_err_writeln('[Plugin] Cmp doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Cmp doesn\'t exist' } }, true, { err = true })
                 return
             end
 
             local lspkind_ok, lspkind = pcall(require, 'lspkind')
             if not lspkind_ok then
-                vim.api.nvim_err_writeln('[Plugin] Lspkind doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Lspkind doesn\'t exist' } }, true, { err = true })
                 return
             end
 

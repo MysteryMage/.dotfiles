@@ -5,7 +5,7 @@ return {
         config = function()
             local guess_ok, guess = pcall(require, 'guess-indent')
             if not guess_ok then
-                vim.api.nvim_err_writeln('[Plugin] Guess-Indent doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Guess-Indent doesn\'t exist' } }, true, { err = true })
                 return
             end
 

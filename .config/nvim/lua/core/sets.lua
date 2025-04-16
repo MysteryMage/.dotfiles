@@ -6,6 +6,7 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.laststatus = 3
 vim.opt.winbar = ''
+-- vim.opt.winborder = 'rounded'
 
 vim.opt.hidden = true
 vim.opt.scrolloff = 4

@@ -7,7 +7,7 @@ return {
         config = function()
             local null_ls_ok, null_ls = pcall(require, 'null-ls')
             if not null_ls_ok then
-                vim.api.nvim_err_writeln('[Plugin] Null_ls doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Null_ls doesn\'t exist' } }, true, { err = true })
                 return
             end
 

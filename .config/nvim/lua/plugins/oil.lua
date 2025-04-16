@@ -6,7 +6,7 @@ return {
         config = function()
             local oil_ok, oil = pcall(require, 'oil')
             if not oil_ok then
-                vim.api.nvim_err_writeln('[Plugin] Oil doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Oil doesn\'t exist' } }, true, { err = true })
                 return
             end
 

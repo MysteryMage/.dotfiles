@@ -6,11 +6,12 @@ return {
         config = function()
             local telescope_ok, telescope = pcall(require, 'telescope')
             if not telescope_ok then
-                vim.api.nvim_err_writeln('[Plugin] Telescope doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Telescope doesn\'t exist' } }, true, { err = true })
                 return
             end
 
             local telescope_previewers = require('telescope.previewers')
+            local telescope_builtin = require('telescope.builtin')
 
             telescope.setup({
                 defaults = {
@@ -33,7 +34,7 @@ return {
             local opts = { noremap = true, silent = true }
 
             vim.keymap.set('n', '<leader>fc', function()
-                telescope.find_files({
+                telescope_builtin.find_files({
                     cwd = vim.fn.stdpath('config'),
                 })
             end, opts)

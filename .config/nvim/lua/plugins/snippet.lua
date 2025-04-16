@@ -6,7 +6,7 @@ return {
         config = function()
             local luasnip_ok, luasnip = pcall(require, 'luasnip')
             if not luasnip_ok then
-                vim.api.nvim_err_writeln('[Plugin] Luasnip doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Luasnip doesn\'t exist' } }, true, { err = true })
                 return
             end
 

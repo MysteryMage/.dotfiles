@@ -15,7 +15,7 @@ return {
         config = function()
             local treesitter_ok, treesitter = pcall(require, 'nvim-treesitter')
             if not treesitter_ok then
-                vim.api.nvim_err_writeln('[Plugin] Treesitter doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Treesitter doesn\'t exist' } }, true, { err = true })
                 return
             end
 
@@ -53,7 +53,7 @@ return {
 
             local context_ok, context = pcall(require, 'treesitter-context')
             if not context_ok then
-                vim.api.nvim_err_writeln('[Plugin] Treesitter-Context doesn\'t exist')
+                vim.api.nvim_echo({ { '[Plugin] Treesitter-Context doesn\'t exist' } }, true, { err = true })
                 return
             end
 
