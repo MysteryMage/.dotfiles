@@ -22,55 +22,34 @@ return {
                 return
             end
 
-            mason.setup({
-                ui = {
-                    border = 'rounded',
-                },
-            })
-            mason_lsp.setup()
-
-            mason_lsp.setup_handlers({
-                function(server_name)
-                    lspconfig[server_name].setup({})
-                end,
-
-                ['lua_ls'] = function()
-                    lspconfig.lua_ls.setup({
-                        settings = {
-                            Lua = {
-                                runtime = {
-                                    version = 'LuaJIT',
-                                },
-                                diagnostics = {
-                                    enable = true,
-                                    globals = { 'vim' },
-                                },
-                                workspace = {
-                                    library = {
-                                        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                                        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                                        ['/usr/share/awesome/lib'] = true,
-                                    },
-                                    maxPreload = 2000,
-                                    preloadFileSize = 1000,
-                                },
-                                telemetry = {
-                                    enable = false,
-                                },
-                            },
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
                         },
-                    })
-                end,
-
-                ['ts_ls'] = function()
-                    lspconfig.ts_ls.setup({
-                        on_attach = function(client)
-                            client.server_capabilities.documentFormattingProvider = false
-                            client.server_capabilities.documentRangeFormattingProvider = false
-                        end,
-                    })
-                end,
+                        diagnostics = {
+                            enable = true,
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            library = {
+                                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                                ['/usr/share/awesome/lib'] = true,
+                            },
+                            maxPreload = 2000,
+                            preloadFileSize = 1000,
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    }
+                }
             })
+
+            mason.setup()
+            mason_lsp.setup()
         end,
     },
 }
