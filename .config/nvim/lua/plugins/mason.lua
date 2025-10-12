@@ -16,13 +16,9 @@ return {
                 return
             end
 
-            local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
-            if not lspconfig_ok then
-                vim.api.nvim_echo({ { '[Plugin] Lspconfig doesn\'t exist' } }, true, { err = false })
-                return
-            end
-
-            lspconfig.lua_ls.setup({
+            vim.lsp.config.lua_ls = {
+                cmd = { 'lua-language-server' },
+                filetypes = { 'lua' },
                 settings = {
                     Lua = {
                         runtime = {
@@ -44,9 +40,9 @@ return {
                         telemetry = {
                             enable = false,
                         },
-                    }
-                }
-            })
+                    },
+                },
+            }
 
             mason.setup()
             mason_lsp.setup()
