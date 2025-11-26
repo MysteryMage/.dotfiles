@@ -47,6 +47,12 @@ return {
             vim.keymap.set('n', '<leader>fg', ':Telescope git_files<Cr>', opts)
             vim.keymap.set('n', '<leader>fb', ':Telescope buffers<Cr>', opts)
             vim.keymap.set('n', '<leader>g', ':Telescope live_grep<Cr>', opts)
+            vim.keymap.set('v', '<leader>g', function ()
+                local cursor = vim.fn.getpos('.')
+                local end_cursor = vim.fn.getpos('v')
+                local text =  vim.fn.getregion(cursor, end_cursor)
+                telescope_builtin.live_grep({ default_text = text[1]})
+            end, opts)
         end,
     },
 }
