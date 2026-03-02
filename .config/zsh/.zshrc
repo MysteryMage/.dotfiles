@@ -57,11 +57,29 @@ bindkey '^[[Z' reverse-menu-complete
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
-if [[ -f /usr/share/nvm/init-nvm.sh ]] then
-    source /usr/share/nvm/init-nvm.sh
-fi
-
 export PATH=~/.local/bin:$PATH
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NODE_REPL_HISTORY="$XDG_STATE_HOME"/node_repl_history
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
+export PYTHON_HISTORY=$XDG_DATA_HOME/python/history
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+
+if [[ -f /usr/share/nvm/init-nvm.sh ]] then
+    source /usr/share/nvm/init-nvm.sh
+fi
+
